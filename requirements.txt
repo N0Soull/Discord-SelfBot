@@ -1,0 +1,14 @@
+aiohttp
+aiosignal
+async-timeout
+attrs
+charset-normalizer
+git+https://github.com/dolfies/discord.py-self.git#egg=discord.py-self
+frozenlist
+idna
+multidict
+python-dotenv
+setuptools
+urllib3
+wheel
+yarl
