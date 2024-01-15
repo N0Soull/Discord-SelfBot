@@ -15,7 +15,7 @@ Its primary features include:
 
 This section might be outdated at times, so check the code for more up to date information if you care about it.
 
-Command prefix: >>>
+Command prefix: ">"
 
 - help (shows a custom help message)
 - available/ON (custom RPC saying 'playing with the shotgun trigger')
