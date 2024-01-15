@@ -10,12 +10,12 @@ This project is a Discord selfbot powered by [`this`](https://github.com/dolfies
 
 - Custom RPC (Rich Presence) with status
 - Automatic emote managment without discord nitro and on every devide mobile/pc.
-- - `this feature is still under development but will be done soon`
 
 ### coming soon
 
 - Auto-reply to messages if AFK-mod is toggled
 - In-chat RPC change
+- guide on how to insert your own emotes
 
 ## Available commands
 
