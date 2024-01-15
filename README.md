@@ -9,7 +9,8 @@ This project is a Discord selfbot powered by [`this`](https://github.com/dolfies
 ## features
 
 - Custom RPC (Rich Presence) with status
-- Automatic emote managment without discord nitro and on every devide mobile/pc. `this feature is still under development but will be done soon`
+- Automatic emote managment without discord nitro and on every devide mobile/pc.
+- - `this feature is still under development but will be done soon`
 
 ### coming soon
 
