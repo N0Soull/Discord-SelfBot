@@ -47,11 +47,11 @@ pip install -r requirements.txt
 
 if you have done everything mentioned above then create a file called `.env` in src, having the following text:
 
-```json
+```env
 TOKEN=YOUR_DISCORD_TOKEN_HERE
 ```
 
-To obtain your discord token, you can have a look [here](https://discordpy-self.readthedocs.io/en/latest/token.html). or just google.
+To obtain your discord token, you can have a look [here](https://discordpy-self.readthedocs.io/en/latest/token.html). or just google it.
 
 ### Usage
 
