@@ -29,6 +29,15 @@ class Commands(commands.Cog):
         except Exception as e:
             await ctx.send(f"Failed to reload extension `{cog}`. {type(e).__name__}: {e}")
 
+    #loads new cog on the go
+    @commands.command(name="load")
+    async def command_load_cog(self, ctx, *, cog: str):
+        try:
+            await self.bot.load_extension(cog)
+            await ctx.reply(f"Loaded extension `{cog} successfully.")
+        except Exception as e:
+            await ctx.reply(f"Failed to load extension `{cog}`. {type(e).__name__}: {e}")
+
 #defining custom help message
 help_message: str = """
 Commands format:
@@ -38,7 +47,11 @@ Available commands:
     Functionality:
         ``test`` [t] - Test if the bot is active (a basic ping pong command)
         ``help`` - Shows this message
-        ``reload`` - reloads cog (good for debuging)
+        ``reload`` - reloads any cog
+        ``load``- loads a new cog module on the go
+        ``setuser``[stu] - sets the username in config file
+        ``setprefix``[stp] - lets the user define prefix
+        ``debug`` [db] - toggles debug mode on and off
 
     Activity:
         ``ON`` [on] - Sets RPC to your default (can be customized in code)
@@ -46,7 +59,9 @@ Available commands:
         ``work``[worki] - worki work RPC, just for fun (Do Not Disturb status)
 
     Emotes:
-        ``emote`` - Automated emote integration without having Discord Nitro (works on mobile aswell)
+        ``emote`` [e] - Automated emote integration without having Discord Nitro (works on mobile aswell)
+        ``addemote``[addE] - adds a new emote to emotes.json file
+        ``removeemote``[rmE] - removes emote entry from emotes.json file
 
     List of emotes:
         <insert your emote shortcuts here>

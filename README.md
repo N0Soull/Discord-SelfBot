@@ -10,12 +10,13 @@ This project is a Discord selfbot powered by [`this`](https://github.com/dolfies
 
 - Custom RPC (Rich Presence) with status
 - Automatic emote managment without discord nitro and on every devide mobile/pc.
+- emotes add through chat and one simple command.
+- config file edit for easier use
 
 ### coming soon
 
 - Auto-reply to messages if AFK-mode is toggled
 - In-chat RPC change
-- guide on how to insert your own emotes
 
 ## Available commands
 
@@ -23,13 +24,20 @@ This section might be outdated, so refer to the code for more up to date command
 
 command Prefix: `>`
 |
-this can be aswell changed in code.
+this can be aswell changed in code/[`config.json`](./config.json) or soon through bot commands.
 
 - ```>help``` shows a custom help message which only the sender can see.
 - ```>available``` alias ```>on``` | this changes the RPC and status to idle
 - ```>Work``` changes RPC and turns on "Do Not Disturb" status.
 - ```>invisible``` alias ```>off``` | Switches the status to Invisible.
 - ```>test``` a simple ping->pong command.
+- ```>emote``` sends user defined emotes which are saved in a config file
+- ```>addemote``` adds user defined emotes to mentioned before config file.
+- ```>removeemote``` simply removes the entry from config.
+- ```>reload``` Reloads any of the currently loaded cogs to react to code changes on runtime without having to restart the bot
+- ```>load``` Loads a newly created cog on runtime without having to restart the bot
+
+ `config manipulation features are still in progress, they will be done soon tho`
 
 ## Project Status
 
@@ -50,7 +58,18 @@ Set up & enter a virtual environment
 ```shell
 pip install virtualenv
 virtualenv venv
+```
+
+for linux/unix:
+
+```shell
 source venv/bin/activate
+```
+
+for windows (powershell):
+
+```shell
+.\venv\Scripts\activate
 ```
 
 ---
