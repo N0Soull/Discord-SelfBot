@@ -16,7 +16,7 @@ class Bot(commands.Bot):
         )
 
         self.remove_command("help")
-        self.initial_extensions = ["EmoteCommands", "StatusCommands", "GeneralCommands"]
+        self.initial_extensions = ["Emotes", "Status", "Commands"]
         self.debug = debug
 
     async def setup_hook(self):
