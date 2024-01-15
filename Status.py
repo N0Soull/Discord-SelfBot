@@ -10,13 +10,13 @@ class Status(commands.Cog):
     @commands.command(name="Available", aliases=["on"])
     async def command_available(self, ctx):
         if self.bot.debug:
-            print("command_available called.")
+            print("command_available.")
 
         await self.bot.change_presence(
             status=discord.Status.idle,
             activity=discord.Activity(
                 type=discord.ActivityType.playing,
-                name="with the shotgun trigger"
+                name="with N0Soul's sanity"
             ),
             afk=False
         )
@@ -28,7 +28,7 @@ class Status(commands.Cog):
     @commands.command(name="invisible", aliases=["off"])
     async def command_sleep(self, ctx):
         if self.bot.debug:
-            print("command_sleep called.")
+            print("command_invisible.")
 
         await self.bot.change_presence(
             status=discord.Status.invisible,
@@ -46,13 +46,13 @@ class Status(commands.Cog):
     @commands.command(name="Work", aliases=["worki"])
     async def command_school(self, ctx):
         if self.bot.debug:
-            print("command_school called.")
+            print("command_work.")
 
         await self.bot.change_presence(
             status=discord.Status.do_not_disturb,
             activity=discord.Activity(
-                type=discord.ActivityType.playing,
-                name="with my sanity"
+                type=discord.ActivityType.watching,
+                name="N0Soul go insane"
             ),
             afk=False
         )

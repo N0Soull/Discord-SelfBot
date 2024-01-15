@@ -1,13 +1,15 @@
 import discord
 from discord.ext import commands
-import os
 from dotenv import load_dotenv
+import os
 
+#debug mode BOOL
 debug: bool = False
 
 load_dotenv()
 token = os.getenv('TOKEN')
 
+#bot intialization
 class Bot(commands.Bot):
     def __init__(self, command_prefix, self_bot):
         super().__init__(

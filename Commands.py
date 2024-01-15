@@ -8,7 +8,7 @@ class Commands(commands.Cog):
     @commands.command(name="test", aliases=["t"])
     async def command_test(self, ctx):
         if self.bot.debug:
-            print("command_test called.")
+            print("Test_called.")
 
         await ctx.reply("Working.")
 
@@ -20,6 +20,7 @@ class Commands(commands.Cog):
 
         await ctx.reply(help_message)
 
+    #reload cog modules
     @commands.command(name="reload")
     async def reload_cog(self, ctx, *, cog: str):
         try:
@@ -28,6 +29,7 @@ class Commands(commands.Cog):
         except Exception as e:
             await ctx.send(f"Failed to reload extension `{cog}`. {type(e).__name__}: {e}")
 
+#defining custom help message
 help_message: str = """
 Commands format:
 ``command`` [shortcuts] - Explanation with extra notes
