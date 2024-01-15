@@ -24,9 +24,6 @@ class Status(commands.Cog):
         if ctx.message:
             await ctx.message.delete()
 
-        if self.debug:
-            print("Successfully changed presence")
-
     #sets status to invisible plus custom RPC
     @commands.command(name="invisible", aliases=["off"])
     async def command_sleep(self, ctx):
@@ -45,9 +42,6 @@ class Status(commands.Cog):
         if ctx.message:
             await ctx.message.delete()
 
-        if self.debug:
-            print("Successfully changed presence")
-
     #sets status to Do not Discturb plus custom RPC
     @commands.command(name="Work", aliases=["worki"])
     async def command_school(self, ctx):
@@ -65,9 +59,6 @@ class Status(commands.Cog):
         
         if ctx.message:
             await ctx.message.delete()
-            
-        if self.debug:
-            print("Successfully changed presence")
 
 async def setup(bot):
     await bot.add_cog(Status(bot))

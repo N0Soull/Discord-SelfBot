@@ -7,8 +7,6 @@ emotes = {
     'nicedick': ('877571237713436692', 'webp'),
 }
 
-
-# TODO url-parser is done, only emotes are fucked
 class Emotes(commands.Cog):
     def __init__(self, bot):
         self.bot = bot

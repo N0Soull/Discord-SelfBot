@@ -19,13 +19,14 @@ class Bot(commands.Bot):
         self.initial_extensions = ["Emotes", "Status", "Commands"]
         self.debug = debug
 
+    #extention load message
     async def setup_hook(self):
         for extension in self.initial_extensions:
             await self.load_extension(extension)
             print(f"Loaded extension {extension}")
 
+    #on ready message
     async def on_ready(self):
-        """on_ready event"""
         print(f"Logged in as: {self.user}")
 
         await self.change_presence(
@@ -40,15 +41,7 @@ class Bot(commands.Bot):
         if self.debug:
             print("Successfully changed presence")
 
-    # TODO Fix this command, as of right now, it acts like it doesn't exist
-    @commands.command(name="reload")
-    async def reload_cog(self, ctx, *, cog: str):
-        try:
-            await self.bot.reload_extension(cog)
-            await ctx.send(f"Reloaded extension `{cog}` successfully.")
-        except Exception as e:
-            await ctx.send(f"Failed to reload extension `{cog}`. {type(e).__name__}: {e}")
 
-
+#prefix can be changed to anything you want
 client = Bot(command_prefix=">", self_bot=True)
 client.run(token)
