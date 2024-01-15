@@ -63,7 +63,7 @@ pip install -r requirements.txt
 
 ---
 
-if you have done everything mentioned above then create a file called `.env` in src of the project, and paste the following:
+if you have done everything mentioned above then create a file called `.env` in src directory of the project, and paste the following:
 
 ```env
 TOKEN=YOUR_DISCORD_TOKEN_HERE
