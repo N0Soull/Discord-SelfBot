@@ -4,7 +4,7 @@ made just for fun but maybe i will realse it in feature
 
 ## Description
 
-This project is a Discord selfbot powered by [this](https://github.com/dolfies/discord.py-self) python selfbot library forked from the original discord.py The bot is built using Python 3.10.11 and is compatible with Python 3.8 and higher.
+This project is a Discord selfbot powered by [this](https://github.com/dolfies/discord.py-self) python selfbot library forked from the original discord.py The bot is built using Python 3.11.2 and is compatible with Python 3.8 and higher.
 
 Its primary features include:
 
