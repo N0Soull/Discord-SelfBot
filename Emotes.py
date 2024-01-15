@@ -4,15 +4,16 @@ from urllib.parse import urlparse, unquote
 
 # Defining the emote dictionary
 emotes = {
-    
+    'nicedick': ('877571237713436692', 'webp'),
 }
+
 
 # TODO url-parser is done, only emotes are fucked
 class Emotes(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name="emote")
+    @commands.command(name="emote", aliases=["e"])
     async def emote(self, ctx, *, emote_name: str):
         if emote_name in emotes:
             emote_id, ext = emotes[emote_name]
