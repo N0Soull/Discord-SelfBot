@@ -69,7 +69,7 @@ if you have done everything mentioned above then create a file called `.env` in 
 TOKEN=YOUR_DISCORD_TOKEN_HERE
 ```
 
-replace `YOUR_DISCORD_TOKEN_HERE` with you'r actual discord token
+replace `YOUR_DISCORD_TOKEN_HERE` with your actual discord token
 
 To obtain your discord token, you can have a look [`here`](https://discordpy-self.readthedocs.io/en/latest/token.html). or just google it.
 
