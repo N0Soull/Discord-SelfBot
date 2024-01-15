@@ -1,35 +1,48 @@
-# Discord Selfbot
+# <img align="left" alt="Python" width="25px" style="padding:5px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-plain.svg" /> Python Self-bot
 
-made just for fun but maybe i will realse it in feature
+*`notice! this project is against Discord's ToS and it's only a proof of concept and I cannot recommend using it. Do so at your own risk.`*
 
-## Description
+---
 
-This project is a Discord selfbot powered by [this](https://github.com/dolfies/discord.py-self) python selfbot library forked from the original discord.py The bot is built using Python 3.11.2 and is compatible with Python 3.8 and higher.
+This project is a Discord selfbot powered by [`this`](https://github.com/dolfies/discord.py-self) python selfbot library forked from the original discord.py.
 
-Its primary features include:
+## features
 
-- Rich presence statuses for being available and actualy everything that discord allows you to do.
-- Automatic emote management which doesn't require discord nitro, no matter what client you're on (mobile/PC), this feature is still under developments tho.
+- Custom RPC (Rich Presence) with status
+- Automatic emote managment without discord nitro and on every devide mobile/pc. `this feature is still under development but will be done soon`
+
+### coming soon
+
+- Auto-reply to messages if AFK-mod is toggled
+- In-chat RPC change
 
 ## Available commands
 
-This section might be outdated at times, so check the code for more up to date information if you care about it.
+This section might be outdated, so refer to the code for more up to date commands.
 
-Command prefix: ">"
+command Prefix: `>`
+|
+this can be aswell changed in code.
 
-- help (shows a custom help message)
-- available/ON (custom RPC saying 'playing with the shotgun trigger')
-- Work (custom RPC saying 'playing with my sanity')
-- invisible
-- test (see if the bot is active)
+- ```>help``` shows a custom help message which only the sender can see.
+- ```>available``` alias ```>on``` | this changes the RPC and status to idle
+- ```>Work``` changes RPC and turns on "Do Not Disturb" status.
+- ```>invisible``` alias ```>off``` | Switches the status to Invisible.
+- ```>test``` a simple ping->pong command.
 
 ## Project Status
 
-all of my projects are currently under development...
+`all of my projects are currently under development so yea not much to say here...`
 
 ## Installation
 
-To set up this project, clone this repository or download the source code
+To set up this project, clone this repository
+
+```shell
+git clone https://github.com/0MmEga/Self-bot.git
+```
+
+---
 
 Set up & enter a virtual environment
 
@@ -39,19 +52,27 @@ virtualenv venv
 source venv/bin/activate
 ```
 
+---
+
 Install all required libraries mentioned in the `requirements.txt` file, with this command:
 
 ```python
 pip install -r requirements.txt
 ```
 
-if you have done everything mentioned above then create a file called `.env` in src, having the following text:
+---
+
+if you have done everything mentioned above then create a file called `.env` in src of the project, and paste the following:
 
 ```env
 TOKEN=YOUR_DISCORD_TOKEN_HERE
 ```
 
-To obtain your discord token, you can have a look [here](https://discordpy-self.readthedocs.io/en/latest/token.html). or just google it.
+replace `YOUR_DISCORD_TOKEN_HERE` with you'r actual discord token
+
+To obtain your discord token, you can have a look [`here`](https://discordpy-self.readthedocs.io/en/latest/token.html). or just google it.
+
+---
 
 ### Usage
 
