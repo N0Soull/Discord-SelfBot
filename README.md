@@ -1,6 +1,6 @@
 # <img align="left" alt="Python" width="25px" style="padding:5px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-plain.svg" /> Python Self-bot
 
-*`notice! this project is against Discord's ToS and it's only a proof of concept and I cannot recommend using it. Do so at your own risk.`*
+`notice! this project is against Discord's ToS and it's only a proof of concept and I cannot recommend using it. Do so at your own risk.`
 
 ---
 
