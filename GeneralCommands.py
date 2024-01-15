@@ -1,7 +1,26 @@
 from discord.ext import commands
 
+class GeneralCommands(commands.Cog):
+    def __init__(self, bot):
+        self.bot = bot
+
+    #test command, similar to ping-pong
+    @commands.command(name="test", aliases=["t"])
+    async def command_test(self, ctx):
+        if self.bot.debug:
+            print("command_test called.")
+
+        await ctx.reply("Working.")
+
+    #shows help message
+    @commands.command(name="help")
+    async def command_help(self, ctx):
+        if self.bot.debug:
+            print("command_help called.")
+
+        await ctx.reply(help_message)
+
 help_message: str = """
-Discord selfbot
 Commands format:
 ``command`` [shortcuts] - Explanation (extra notes)
 
@@ -11,39 +30,16 @@ Available commands:
         ``help`` - Shows this message
 
     Activity:
-        ``available`` [av] - Clear changed RPC (Resets status to online and activity to 'cyka''
-        ``sleep`` - Sleep RPC
-        ``school``[work] - School RPC
-        ``homework`` [hw] - Homework RPC
+        ``ON`` [on] - Cleares RPC (Resets status to "sleep" and activity to 'Playing with the shotgun trigger''
+        ``invisible`` [off] - Sleep RPC plus custom message
+        ``work``[worki] - worki work RPC, just for fun
 
     Emotes:
-        ``emote`` [e] - Automated emote integration without having Discord Nitro
+        ``emote`` - Automated emote integration without having Discord Nitro
 
     List of emotes:
-        `troll`, `trolla`, `crackcat`, `zzzcat`, `zzzcatconfused`, `zzzcathappy`, `5head`, `kekwdisco`, `sadangry`, `edits`, `fastsmh`, `catjamfast`, `bruh`, `sus`
+        still wokring on that
 """
-
-
-class GeneralCommands(commands.Cog):
-    def __init__(self, bot):
-        self.bot = bot
-
-    @commands.command(name="test", aliases=["t"])
-    async def command_test(self, ctx):
-        """command_test gets called when the user executes the command '>test' into any channel"""
-        if self.bot.debug:
-            print("command_test called.")
-
-        await ctx.reply("Working.")
-
-    @commands.command(name="help")
-    async def command_help(self, ctx):
-        """command_help gets called when the user executes the command '>help' into any channel"""
-        if self.bot.debug:
-            print("command_help called.")
-
-        await ctx.reply(help_message)
-
 
 async def setup(bot):
     await bot.add_cog(GeneralCommands(bot))

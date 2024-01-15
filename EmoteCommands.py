@@ -4,7 +4,7 @@ from urllib.parse import urlparse, unquote
 
 # Defining the emote dictionary
 emotes = {
-    'troll': ('781985209850789929', 'webp'),
+    'heh': ('840763597616447488', 'webp'),
     'trolla': ('838034298056474624', 'gif'),
     'crackcat': ('869556399116517447', 'webp'),
     'zzzcat': ('713860445307666504', 'gif'),
@@ -24,7 +24,7 @@ class EmoteCommands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name="emote", aliases=["e"])
+    @commands.command(name="emote")
     async def emote(self, ctx, *, emote_name: str):
         if emote_name in emotes:
             emote_id, ext = emotes[emote_name]

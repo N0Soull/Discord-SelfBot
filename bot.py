@@ -3,20 +3,20 @@ from discord.ext import commands
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
-
 debug: bool = False
+
+load_dotenv()
+token = os.getenv('TOKEN')
 
 class Bot(commands.Bot):
     def __init__(self, command_prefix, self_bot):
         super().__init__(
-            intents = discord.Intents.all(),
             command_prefix=command_prefix,
             self_bot=self_bot
         )
 
         self.remove_command("help")
-        self.initial_extensions = ["EmoteCommands", "StatusCommands", "MessageCommands", "GeneralCommands"]
+        self.initial_extensions = ["EmoteCommands", "StatusCommands", "GeneralCommands"]
         self.debug = debug
 
     async def setup_hook(self):
@@ -25,14 +25,14 @@ class Bot(commands.Bot):
             print(f"Loaded extension {extension}")
 
     async def on_ready(self):
-        """on_ready event when online"""
+        """on_ready event"""
         print(f"Logged in as: {self.user}")
 
         await self.change_presence(
-            status=discord.Status.do_not_disturb,
+            status=discord.Status.idle,
             activity=discord.Activity(
-                type=discord.ActivityType.watching,
-                name="cyka"
+                type=discord.ActivityType.playing,
+                name="with the shotgun trigger"
             ),
             afk=True
         )
@@ -44,12 +44,11 @@ class Bot(commands.Bot):
     @commands.command(name="reload")
     async def reload_cog(self, ctx, *, cog: str):
         try:
-            await self.reload_extension(cog)
+            await self.bot.reload_extension(cog)
             await ctx.send(f"Reloaded extension `{cog}` successfully.")
         except Exception as e:
             await ctx.send(f"Failed to reload extension `{cog}`. {type(e).__name__}: {e}")
 
 
 client = Bot(command_prefix=">", self_bot=True)
-token = os.getenv('TOKEN')
 client.run(token)
