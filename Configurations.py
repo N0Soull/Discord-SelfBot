@@ -1,7 +1,7 @@
 import json
 from discord.ext import commands
 
-class configurations(commands.Cog):
+class Configurations(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -45,4 +45,4 @@ class configurations(commands.Cog):
         await ctx.reply(f"Debug mode {'enabled' if mode else 'disabled'}.")
 
 async def setup(bot):
-    await bot.add_cog(configurations(bot))
+    await bot.add_cog(Configurations(bot))

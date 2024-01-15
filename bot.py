@@ -24,7 +24,7 @@ def load_config(file_path: str) -> dict:
         return default_config
 
 # Primary configuration file path
-primary_config_file_path: str = "config.json"
+primary_config_file_path: str = "./configs/config.json"
 
 # Loading the configuration
 config: dict = load_config(primary_config_file_path)
@@ -44,7 +44,7 @@ class Bot(commands.Bot):
         )
 
         self.remove_command("help")
-        self.initial_extensions = ["Emotes", "Status", "Commands", "configurations"]
+        self.initial_extensions = ["Emotes", "Status", "Commands", "Configurations"]
         self.debug = debug
 
         if cfg_user == "User":
