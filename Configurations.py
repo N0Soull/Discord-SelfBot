@@ -6,7 +6,7 @@ class Configurations(commands.Cog):
         self.bot = bot
 
     # set user command to define name
-    @commands.command(name="setuser", aliases=["stu"])
+    @commands.command(name="setuser", aliases=["setUSR"])
     async def command_set_user(self, ctx, user_name):
         with open("config.json", "r") as config_file:
             config = json.load(config_file)
@@ -19,7 +19,7 @@ class Configurations(commands.Cog):
         await ctx.reply(f"User set to: {user_name}")
 
     # setprefix command to define command prefix
-    @commands.command(name="setprefix", aliases=["stp"])
+    @commands.command(name="setprefix", aliases=["setP"])
     async def command_set_prefix(self, ctx, prefix):
         with open("config.json", "r") as config_file:
             config = json.load(config_file)
@@ -32,7 +32,7 @@ class Configurations(commands.Cog):
         await ctx.reply(f"Command prefix set to: {prefix}")
 
     # debug command to turn debug mode on/off
-    @commands.command(name="debug", aliases=["db"])
+    @commands.command(name="debug", aliases=["DB"])
     async def command_debug(self, ctx, mode: bool):
         with open("config.json", "r") as config_file:
             config = json.load(config_file)
