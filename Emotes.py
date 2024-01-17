@@ -9,7 +9,7 @@ from urllib.parse import urlparse, unquote
 # Load emotes from JSON file
 def load_emotes():
     try:
-        with open('emotes.json', 'r') as file:
+        with open('./cfg/emotes.json', 'r') as file:
             data = file.read()
             return json.loads(data) if data else {}
     except FileNotFoundError:
@@ -19,7 +19,7 @@ def load_emotes():
 
 # Save emotes to JSON file
 def save_emotes(emotes):
-    with open('emotes.json', 'w') as file:
+    with open('./cfg/emotes.json', 'w') as file:
         json.dump(emotes, file)
 
 class Emotes(commands.Cog):

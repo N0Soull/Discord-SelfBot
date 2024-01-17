@@ -24,7 +24,7 @@ def load_config(file_path: str) -> dict:
         return default_config
 
 # Primary configuration file path
-primary_config_file_path: str = "./config.json"
+primary_config_file_path: str = "./cfg/config.json"
 
 # Loading the configuration
 config: dict = load_config(primary_config_file_path)
