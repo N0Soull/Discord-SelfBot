@@ -65,8 +65,8 @@ class Bot(commands.Bot):
         await self.change_presence(
             status=discord.Status.idle,
             activity=discord.Activity(
-                type=discord.ActivityType.playing,
-                name="with the shotgun trigger"
+                type=discord.ActivityType.listening, #activity types: playing, watching, streaming, listening, custom, competing
+                name="voices in my head"
             ),
             afk=True
         )

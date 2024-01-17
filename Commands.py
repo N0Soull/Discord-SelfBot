@@ -57,6 +57,7 @@ Available commands:
         ``ON`` [on] - Sets RPC to your default (can be customized in code)
         ``invisible`` [off] - Sets status to invisible (nothing special)
         ``work``[worki] - worki work RPC, just for fun (Do Not Disturb status)
+        ``suffer``[evd] - listening to voices in my head RPC (idle status)
 
     Emotes:
         ``emote`` [e] - Automated emote integration without having Discord Nitro (works on mobile aswell)

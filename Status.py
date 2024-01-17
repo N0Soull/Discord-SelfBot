@@ -60,5 +60,22 @@ class Status(commands.Cog):
         if ctx.message:
             await ctx.message.delete()
 
+    @commands.command(name="suffer", aliases=["evd"])
+    async def command_suffering(self, ctx):
+        if self.bot.debug:
+            print("command_suffering.")
+
+        await self.bot.change_presence(
+            status=discord.Status.idle,
+            activity=discord.Activity(
+                type=discord.ActivityType.listening,
+                name="voices in my head"
+            ),
+            afk=False
+        )
+
+        if ctx.message:
+            await ctx.message.delete()
+
 async def setup(bot):
     await bot.add_cog(Status(bot))
