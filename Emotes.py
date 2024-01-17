@@ -38,7 +38,7 @@ class Emotes(commands.Cog):
             await ctx.message.edit(content="Invalid emote name.")
 
     #parse emote
-    @commands.command(name="find")
+    @commands.command(name="find", aliases=["parseEmote"])
     async def find(self, ctx, *, emote_url: str):
         parsed_url = urlparse(unquote(emote_url))
         emote_id = parsed_url.path.split('/')[-1].split('.')[0]
