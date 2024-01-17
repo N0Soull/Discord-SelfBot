@@ -6,7 +6,7 @@ class Status(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    #standart status and RPC
+    # standart status and RPC
     @commands.command(name="Available", aliases=["on"])
     async def command_available(self, ctx):
         if self.bot.debug:
@@ -24,7 +24,7 @@ class Status(commands.Cog):
         if ctx.message:
             await ctx.message.delete()
 
-    #sets status to invisible plus custom RPC
+    # sets status to invisible plus custom RPC
     @commands.command(name="invisible", aliases=["off"])
     async def command_sleep(self, ctx):
         if self.bot.debug:
@@ -42,7 +42,7 @@ class Status(commands.Cog):
         if ctx.message:
             await ctx.message.delete()
 
-    #sets status to Do not Discturb plus custom RPC
+    # sets status to Do not Discturb plus custom RPC
     @commands.command(name="Work", aliases=["worki"])
     async def command_school(self, ctx):
         if self.bot.debug:

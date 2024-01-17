@@ -4,7 +4,7 @@ class Commands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    #test command, similar to ping-pong
+    # test command, similar to ping-pong
     @commands.command(name="test", aliases=["t"])
     async def command_test(self, ctx):
         if self.bot.debug:
@@ -12,7 +12,7 @@ class Commands(commands.Cog):
 
         await ctx.reply("Working.")
 
-    #shows help message
+    # shows help message
     @commands.command(name="help")
     async def command_help(self, ctx):
         if self.bot.debug:
@@ -20,7 +20,7 @@ class Commands(commands.Cog):
 
         await ctx.reply(help_message)
 
-    #reload cog modules
+    # reload cog modules
     @commands.command(name="reload")
     async def reload_cog(self, ctx, *, cog: str):
         try:
@@ -29,7 +29,7 @@ class Commands(commands.Cog):
         except Exception as e:
             await ctx.send(f"Failed to reload extension `{cog}`. {type(e).__name__}: {e}")
 
-    #loads new cog on the go
+    # loads new cog on the go
     @commands.command(name="load")
     async def command_load_cog(self, ctx, *, cog: str):
         try:
@@ -38,7 +38,7 @@ class Commands(commands.Cog):
         except Exception as e:
             await ctx.reply(f"Failed to load extension `{cog}`. {type(e).__name__}: {e}")
 
-#defining custom help message
+# defining custom help message
 help_message: str = """
 Commands format:
 ``command`` [shortcuts] - Explanation with extra notes

@@ -27,7 +27,7 @@ class Emotes(commands.Cog):
         self.bot = bot
         self.emotes = load_emotes()
 
-    #create and insert emote-link
+    # create and insert emote-link
     @commands.command(name="emote", aliases=["e"])
     async def emote(self, ctx, *, emote_name: str):
         if emote_name in self.emotes:
@@ -37,7 +37,7 @@ class Emotes(commands.Cog):
         else:
             await ctx.message.edit(content="Invalid emote name.")
 
-    #parse emote
+    # parse emote
     @commands.command(name="find", aliases=["parseEmote"])
     async def find(self, ctx, *, emote_url: str):
         parsed_url = urlparse(unquote(emote_url))
@@ -46,7 +46,7 @@ class Emotes(commands.Cog):
         reply = f"'': ('{emote_id}', '{file_ext}')"
         await ctx.reply(reply)
 
-            # add emote
+    # add emote
     @commands.command(name="addemote", aliases=["addE"])
     async def add_emote(self, ctx, emote_name: str, emote_id: str, ext: str):
         self.emotes[emote_name] = (emote_id, ext)
