@@ -16,7 +16,6 @@ This project is a Discord selfbot powered by [`this`](https://github.com/dolfies
 ### coming soon
 
 - Auto-reply to messages if AFK-mode is toggled
-- In-chat RPC change
 
 ## Available commands
 
@@ -24,7 +23,7 @@ This section might be outdated, so refer to the code for more up to date command
 
 command Prefix: `>`
 |
-this can be aswell changed in code/[`config.json`](./config.json) or soon through bot commands.
+this can be aswell changed in code/[`config.json`](./config.json)
 
 - ```>help``` shows a custom help message which only the sender can see.
 - ```>available``` alias ```>on``` | this changes the RPC and status to idle
