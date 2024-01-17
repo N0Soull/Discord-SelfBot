@@ -56,7 +56,7 @@ Set up & enter a virtual environment
 
 ```shell
 pip install virtualenv
-virtualenv venv
+py -m venv .venv
 ```
 
 for linux/unix:
