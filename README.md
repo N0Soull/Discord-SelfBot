@@ -15,7 +15,7 @@ This project is a Discord selfbot powered by [`this`](https://github.com/dolfies
 
 ### coming soon
 
-- Auto-reply to messages if AFK-mode is toggled
+- no features yet that i want to add...
 
 ## Available commands
 
