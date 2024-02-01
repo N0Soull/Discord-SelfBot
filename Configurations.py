@@ -40,7 +40,7 @@ class Configurations(commands.Cog):
         await self.save_config(config)
         await ctx.reply(f"Debug mode {'enabled' if mode else 'disabled'}.")
 
-    # allows to dznamicaly take changes to config
+    # allows to dynamicaly take changes to config
     # TODO fix this command, rn it just reloads the module instead of config 
     @commands.command(name="reloadconfig", aliases=["reloadcfg"])
     async def command_reload_config(self, ctx):
