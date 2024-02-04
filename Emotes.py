@@ -39,7 +39,7 @@ class Emotes(commands.Cog):
             await ctx.message.edit(content="Invalid emote name.")
 
     # parse emote
-    @commands.command(name="find", aliases=["parseEmote"])
+    @commands.command(name="Find", aliases=["ParseEmote"])
     async def find(self, ctx, *, emote_url: str):
         parsed_url = urlparse(unquote(emote_url))
         emote_id = parsed_url.path.split('/')[-1].split('.')[0]
@@ -48,14 +48,14 @@ class Emotes(commands.Cog):
         await ctx.reply(reply)
 
     # add emote
-    @commands.command(name="addemote", aliases=["addE"])
+    @commands.command(name="AddEmote", aliases=["addE"])
     async def add_emote(self, ctx, emote_name: str, emote_id: str, ext: str):
         self.emotes[emote_name] = (emote_id, ext)
         save_emotes(self.emotes)
         await ctx.send(f"Emote {emote_name} added successfully.")
 
     # remove emote
-    @commands.command(name="removeemote", aliases=["rmE"])
+    @commands.command(name="RemoveEmote", aliases=["rmE"])
     async def remove_emote(self, ctx, emote_name: str):
         if emote_name in self.emotes:
             del self.emotes[emote_name]
