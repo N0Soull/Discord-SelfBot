@@ -17,6 +17,8 @@ class Configurations(commands.Cog):
             json.dump(config, config_file, indent=4)
 
     # sets new username and writes it to config
+    # idc how to implement it as of rn so its just here rn for nothing
+    # TODO think about usefull implementation
     @commands.command(name="setuser", aliases=["setUSR"])
     async def command_set_user(self, ctx, user_name):
         config = await self.load_config()

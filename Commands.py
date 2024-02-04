@@ -63,6 +63,7 @@ Available commands:
         ``emote`` [e] - Automated emote integration without having Discord Nitro (works on mobile aswell)
         ``addemote``[addE] - adds a new emote to emotes.json file
         ``removeemote``[rmE] - removes emote entry from emotes.json file
+        ``Find``[findEmote] - allowes you to find emote id/format and create your own shortcut
 
     List of emotes:
         <insert your emote shortcuts here>
