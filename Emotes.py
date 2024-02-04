@@ -5,6 +5,7 @@ from urllib.parse import urlparse, unquote
 
 # Defining the emote dictionary
 '''`emote name`: (`emote id`, `emote format`),'''
+# this was moved to an external file
 
 # Load emotes from JSON file
 def load_emotes():
