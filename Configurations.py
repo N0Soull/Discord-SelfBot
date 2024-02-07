@@ -53,5 +53,17 @@ class Configurations(commands.Cog):
         except Exception as e:
             await ctx.reply(f"Failed to reload config: {e}")
 
+    # TODO finish whoami later
+    @commands.command(name="whoami")
+    async def command_whoami(self, ctx):
+       if self.bot.debug:
+            print("command_help called.")
+        
+            config = await self.load_config()
+            user_name = config["user"]
+        
+            await ctx.reply(user_name)
+
+            
 async def setup(bot):
     await bot.add_cog(Configurations(bot))

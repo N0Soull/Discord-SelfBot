@@ -5,37 +5,37 @@ from discord.ext import commands
 from dotenv import load_dotenv
 
 # TODO think of a way to implement a logout command (as of right now it only works in a main module but seems to act like it doesnt exsist)
-#please note that this damn god forbiden function can only work with properly set up library´s
-#if you try to do it otherwise and not like it says in README then it´s your own fault
+
+#please note that this damn god forbiden load .env function can only work with properly set up library´s
+#if you try to do it otherwise and not like it says in README then it´s your own fault and you can fuck with that on your own
 load_dotenv()
 token = os.getenv('TOKEN')
 
-# Default configuration values
+# Default configuration
 default_config: dict = {
     "debug": False,
-    "user": "user",
+    "user": "Default User",
     "command_prefix": ">"
 }
-
-# Function to load configuration from a specified file path
-def load_config(file_path: str) -> dict:
-    if os.path.exists(file_path):
-        with open(file_path, "r") as config_file:
-            return json.load(config_file)
-    else:
-        print(f"'{file_path}' is not found. Using default configuration.")
-        return default_config
 
 # Primary configuration file path
 primary_config_file_path: str = "./cfg/config.json"
 
-# Loading the configuration
-config: dict = load_config(primary_config_file_path)
+# Load the default configuration
+config: dict = default_config
 
-# Extracting configuration values
-debug: bool = config.get("debug", default_config["debug"])
-cfg_user: str = config.get("user", default_config["user"])
-cfg_prefix: str = config.get("command_prefix", default_config["command_prefix"])
+# Try to load the user-defined configuration
+if os.path.exists(primary_config_file_path):
+    with open(primary_config_file_path, "r") as config_file:
+        user_config = json.load(config_file)
+        config.update(user_config)
+else:
+    print(f"'{primary_config_file_path}' is not found. Using default configuration.")
+
+# Extract configuration values
+debug: bool = config.get("debug")
+cfg_user: str = config.get("user")
+cfg_prefix: str = config.get("command_prefix")
 
 
 # bot intialization
