@@ -44,7 +44,7 @@ class Bot(commands.Bot):
         )
         # loads cog modules
         self.remove_command("help")
-        self.initial_extensions = ["Emotes", "Status", "Commands", "Configurations"]
+        self.initial_extensions = ["Emotes", "Status", "Commands", "Configurations", "MessageCmd"]
         self.debug = debug
 
         if cfg_user == "User":
