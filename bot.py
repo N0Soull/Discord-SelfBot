@@ -10,7 +10,7 @@ token = os.getenv('TOKEN')
 # Default configuration values
 default_config: dict = {
     "debug": False,
-    "user": "N0Soul",
+    "user": "user",
     "command_prefix": ">"
 }
 

@@ -2,7 +2,6 @@
 __pycache__/
 *.py[cod]
 *$py.class
-.MessageCommands.py
 docker-compose.yml
 
 # C extensions
