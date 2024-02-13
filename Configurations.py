@@ -54,6 +54,7 @@ class Configurations(commands.Cog):
             await ctx.reply(f"Failed to reload config: {e}")
 
     # TODO finish whoami later
+    # i dont know for which ever usecase it is here but its good to have it
     @commands.command(name="whoami")
     async def command_whoami(self, ctx):
        if self.bot.debug:
