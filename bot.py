@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 
 #please note that this damn god forbiden load .env function can only work with properly set up library´s
 #if you try to do it otherwise and not like it says in README then it´s your fault and you can fuck with that on your own
+#note aswell that i am not planning to fix it
 load_dotenv()
 token = os.getenv('TOKEN')
 
