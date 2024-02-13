@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 # TODO think of a way to implement a logout command (as of right now it only works in a main module but act's like it doesnt exsist)
 
 #please note that this damn god forbiden load .env function can only work with properly set up library´s
-#if you try to do it otherwise and not like it says in README then it´s your own fault and you can fuck with that on your own
+#if you try to do it otherwise and not like it says in README then it´s your fault and you can fuck with that on your own
 load_dotenv()
 token = os.getenv('TOKEN')
 
