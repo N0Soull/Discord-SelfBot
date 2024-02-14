@@ -8,7 +8,7 @@ class MessageCmd(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        """on_message gets called when any message is sent into any channel"""
+        """on_message event gets called when any message is sent into any channel"""
         if message.author != self.bot.user:
             return
 
