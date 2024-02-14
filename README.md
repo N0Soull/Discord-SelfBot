@@ -10,12 +10,13 @@ This project is a Discord selfbot powered by [`this`](https://github.com/dolfies
 
 - Custom RPC (Rich Presence) with status
 - Automatic emote managment without discord nitro and on every devide mobile/pc.
-- emotes add through chat and one simple command.
+- emotes add through chat and one simple command
 - config file edit for easier use
+- automatic better embed replacement
 
 ### coming soon
 
-- no features yet that i want to add...
+- `work in progress:` multiple config files which are automaticaly loaded when the user changes the selfBot account
 
 ## Available commands
 
@@ -35,8 +36,11 @@ this can be aswell changed in code/[`config.json`](./config.json)
 - ```>removeemote``` simply removes the entry from config.
 - ```>reload``` Reloads any of the currently loaded cogs to react to code changes on runtime without having to restart the bot
 - ```>load``` Loads a newly created cog on runtime without having to restart the bot
+- ```>setuser``` changes the username in config file
+- ```>debug``` switches the debug mode ON/OFF
+- ```>whoami``` let´s the user see under which name the bot is working
 
- `config manipulation features are still in progress, they will be done soon tho`
+- `config manipulation features are still in progress, they will be done soon though`
 
 ## Project Status
 
