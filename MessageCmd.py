@@ -15,6 +15,8 @@ class MessageCmd(commands.Cog):
         # Twitter URLs can have a low embed replacement time, because elon's changes broke twitter.com/x.com embeds on Discord 
         # resulting in us not having to wait for the original embed to load anymore.
         # Other sites have their own embeds which need to load pre-editing, otherwise the edited URL will have the old embed.
+
+        """":original.link": (":replace.link", embed level)"""
         replacements: dict = {
             "://twitter.com": ("://vxtwitter.com", 1),
             "://x.com": ("://vxtwitter.com", 1),
