@@ -16,7 +16,7 @@ This project is a Discord selfbot powered by [`this`](https://github.com/dolfies
 
 ### coming soon
 
-- `work in progress:` multiple config files which are automaticaly loaded when the user changes the selfBot account
+- `work in progress:` multiple config files which can be loaded loaded when the user changes the selfBot account/Token
 
 ## Available commands
 
