@@ -49,9 +49,10 @@ Available commands:
         ``help`` - Shows this message
         ``reload`` - reloads any cog
         ``load``- loads a new cog module on the go
-        ``setuser``[stu] - sets the username in config file
-        ``setprefix``[stp] - lets the user define prefix
+        ``setuser`` - sets the username in config file
+        ``setprefix`` - lets the user define prefix
         ``debug`` [db] - toggles debug mode on and off
+        ``reloadconfig`` [reloadcfg] - reloads the main config module(not working as of right now)
 
     Activity:
         ``ON`` [on] - Sets RPC to your default (can be customized in code)
@@ -61,7 +62,7 @@ Available commands:
 
     Emotes:
         ``emote`` [e] - Automated emote integration without having Discord Nitro (works on mobile aswell)
-        ``addemote``[addE] - adds a new emote to emotes.json file
+        ``addemote``[addE] - adds a new emote to emotes.json file, you will need emote name its id and format 
         ``removeemote``[rmE] - removes emote entry from emotes.json file
         ``Find``[findEmote] - allowes you to find emote id/format and create your own shortcut
 

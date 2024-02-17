@@ -1,19 +1,19 @@
 import asyncio
 from discord.ext import commands
 
-
+# this cog is only for the replacement of the embed
 class MessageCmd(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
+    """on_message event gets called when any message is sent into any channel"""
     @commands.Cog.listener()
     async def on_message(self, message):
-        """on_message event gets called when any message is sent into any channel"""
         if message.author != self.bot.user:
             return
 
-        # Twitter URLs can have a low embed replacement time, because elon's changes broke twitter.com/x.com embeds on Discord 
-        # resulting in us not having to wait for the original embed to load anymore.
+        # Twitter URLs can have a low embed replacement time
+        # resulting in not having to wait for the original embed to load anymore.
         # Other sites have their own embeds which need to load pre-editing, otherwise the edited URL will have the old embed.
 
         """":original.link": (":replace.link", embed level)"""
@@ -33,13 +33,12 @@ class MessageCmd(commands.Cog):
                 await message.edit(content=new_text)
                 break
 
+    """on_message_edit gets called when the local user who is running the bot edits one of his own messages"""
     @commands.Cog.listener()
     async def on_message_edit(self, _, after):
-        """on_message_edit gets called when the local user who is running the bot edits one of his own messages"""
         ctx = await self.bot.get_context(after)
         if ctx.command:
             await self.bot.process_commands(after)
-
 
 async def setup(bot):
     await bot.add_cog(MessageCmd(bot))
