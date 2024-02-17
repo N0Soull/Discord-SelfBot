@@ -8,15 +8,15 @@ This project is a Discord selfbot powered by [`this`](https://github.com/dolfies
 
 ## features
 
-- Custom RPC (Rich Presence) with status
-- Automatic emote managment without discord nitro and on every devide mobile/pc.
+- Custom RPC (Rich Presence) with status change
+- Automatic emote managment without discord nitro and on every device mobile/pc.
 - emotes add through chat and one simple command
 - config file edit for easier use
-- automatic better embed replacement
+- automatic embed replacement
 
 ### coming soon
 
-- `work in progress:` multiple config files which can be loaded loaded when the user changes the selfBot account/Token
+as of right now no more feutures are planned
 
 ## Available commands
 
@@ -44,14 +44,14 @@ this can be aswell changed in code/[`config.json`](./config.json)
 
 ## Project Status
 
-`all of my projects are currently under development so yea not much to say here...`
+`finished but some small bug fixes are still needed`
 
 ## Installation
 
 To set up this project, clone this repository
 
 ```shell
-git clone https://github.com/0MmEga/Self-bot.git
+git clone https://github.com/N0Soull/Self-bot.git
 ```
 
 ---
@@ -85,7 +85,7 @@ pip install -r requirements.txt
 
 ---
 
-if you have done everything mentioned above then create a file called `.env` in src directory of the project, and paste the following:
+if you have done everything mentioned above then create a file called `.env` in the directory of the project and paste the following into the new `.env` file:
 
 ```env
 TOKEN=YOUR_DISCORD_TOKEN_HERE
@@ -99,7 +99,7 @@ To obtain your discord token, you can have a look [`here`](https://discordpy-sel
 
 ### Usage
 
-To run the selfbot, execute the main.py script as follows:
+To run the selfbot, execute the python script as follows:
 
 ```python
 python3 bot.py
