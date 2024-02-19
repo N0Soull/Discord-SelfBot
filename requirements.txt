@@ -1,11 +1,16 @@
-async-timeout
-attrs
-charset-normalizer
-git+https://github.com/dolfies/discord.py-self.git#egg=discord.py-self
-frozenlist
-idna
-python-dotenv
-setuptools
-urllib3
-wheel
-simplejson
+aiohttp==3.9.3
+aiosignal==1.3.1
+async-timeout==4.0.3
+attrs==23.2.0
+charset-normalizer==3.3.2
+discord-protos==0.0.2
+discord.py-self @ git+https://github.com/dolfies/discord.py-self.git@7265307a583054db00ea15f9d4ace1d670caee9a
+frozenlist==1.4.1
+idna==3.6
+multidict==6.0.5
+protobuf==4.25.2
+python-dotenv==1.0.1
+simplejson==3.19.2
+tzlocal==5.2
+urllib3==2.2.0
+yarl==1.9.4
