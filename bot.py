@@ -72,7 +72,7 @@ class Bot(commands.Bot):
                 type=discord.ActivityType.listening, #activity types: playing, watching, streaming, listening, custom, competing
                 name="voices in my head"
             ),
-            afk=True
+            afk=True # AFK mode: ON/OFF better for discord to catch and force the notifications
         )
 
         if self.debug:
