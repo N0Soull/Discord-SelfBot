@@ -41,10 +41,11 @@ this can be aswell changed in code/[`config.json`](./config.json)
 - ```>whoami``` let´s the user see under which name the bot is working
 
 - `config manipulation features are still in progress, they will be done soon though`
+- `logout command is still under development becouse i want to make it as reliable as possible`
 
 ## Project Status
 
-`finished but some small bug fixes are still needed`
+`finished and ready to use but some small bug fixes are still needed`
 
 ## Installation
 
