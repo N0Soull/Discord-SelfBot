@@ -12,7 +12,7 @@ class MessageCmd(commands.Cog):
         if message.author != self.bot.user:
             return
 
-        # Twitter URLs can have a low embed replacement time
+        # Twitter URLs can have a low embed replacement time becouse of the majestic changes that elon made
         # resulting in not having to wait for the original embed to load anymore.
         # Other sites have their own embeds which need to load pre-editing, otherwise the edited URL will have the old embed.
 
