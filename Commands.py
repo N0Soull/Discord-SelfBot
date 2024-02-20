@@ -8,7 +8,7 @@ class Commands(commands.Cog):
     @commands.command(name="test", aliases=["t"])
     async def command_test(self, ctx):
         if self.bot.debug:
-            print("Test_called.")
+            print("COMMAND CALLED: \nTest called.")
 
         await ctx.reply("Working.")
 
@@ -16,7 +16,7 @@ class Commands(commands.Cog):
     @commands.command(name="help")
     async def command_help(self, ctx):
         if self.bot.debug:
-            print("command_help called.")
+            print("COMMAND CALLED: \nhelp message called.")
 
         await ctx.reply(help_message)
 
@@ -29,6 +29,9 @@ class Commands(commands.Cog):
         except Exception as e:
             await ctx.send(f"Failed to reload extension `{cog}`. {type(e).__name__}: {e}")
 
+        if self.bot.debug:
+            print(f"COMMAND CALLED: \nCOG {cog} reloaded")
+
     # loads new cog on the go
     @commands.command(name="load")
     async def command_load_cog(self, ctx, *, cog: str):
@@ -37,6 +40,9 @@ class Commands(commands.Cog):
             await ctx.reply(f"Loaded extension `{cog} successfully.")
         except Exception as e:
             await ctx.reply(f"Failed to load extension `{cog}`. {type(e).__name__}: {e}")
+            
+        if self.bot.debug:
+            print(f"COMMAND CALLED: \nnew COG {cog} loaded")
 
 # defining custom help message
 help_message: str = """

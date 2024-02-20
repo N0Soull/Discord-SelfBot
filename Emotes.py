@@ -38,6 +38,9 @@ class Emotes(commands.Cog):
         else:
             await ctx.message.edit(content="Invalid emote name.")
 
+        if self.bot.debug:
+            print(f"EMOTE COMMAND CALLED: \n{emote_name} emote sent ")
+
     # parse emote
     @commands.command(name="Find", aliases=["ParseEmote"])
     async def find(self, ctx, *, emote_url: str):
@@ -47,12 +50,18 @@ class Emotes(commands.Cog):
         reply = f"'': ('{emote_id}', '{file_ext}')"
         await ctx.reply(reply)
 
+        if self.bot.debug:
+            print("EMOTE COMMAND CALLED: \nemote find")
+
     # add emote
     @commands.command(name="AddEmote", aliases=["addE"])
     async def add_emote(self, ctx, emote_name: str, emote_id: str, ext: str):
         self.emotes[emote_name] = (emote_id, ext)
         save_emotes(self.emotes)
         await ctx.send(f"Emote {emote_name} added successfully.")
+
+        if self.bot.debug:
+            print(f"EMOTE COMMAND CALLED: \nnew emote {emote_name} added")
 
     # remove emote
     @commands.command(name="RemoveEmote", aliases=["rmE"])
@@ -63,6 +72,9 @@ class Emotes(commands.Cog):
             await ctx.send(f"Emote {emote_name} removed successfully.")
         else:
             await ctx.send("Emote not found.")
+
+        if self.bot.debug:
+            print(f"EMOTE COMMAND CALLED: \nnew emote {emote_name} removed")
 
 async def setup(bot):
     await bot.add_cog(Emotes(bot))
