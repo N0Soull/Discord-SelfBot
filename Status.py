@@ -10,7 +10,7 @@ class Status(commands.Cog):
     @commands.command(name="Available", aliases=["on"])
     async def command_available(self, ctx):
         if self.bot.debug:
-            print("command_available.")
+            print("STATUS CHANGE CALLED: \nstatus set to Available")
 
         await self.bot.change_presence(
             status=discord.Status.idle,
@@ -28,7 +28,7 @@ class Status(commands.Cog):
     @commands.command(name="invisible", aliases=["off"])
     async def command_sleep(self, ctx):
         if self.bot.debug:
-            print("command_invisible.")
+            print("STATUS CHANGE CALLED: \nstatus set to Invisible")
 
         await self.bot.change_presence(
             status=discord.Status.invisible,
@@ -46,7 +46,7 @@ class Status(commands.Cog):
     @commands.command(name="Work", aliases=["worki"])
     async def command_school(self, ctx):
         if self.bot.debug:
-            print("command_work.")
+            print("STATUS CHANGE CALLED: \nstatus set to Work")
 
         await self.bot.change_presence(
             status=discord.Status.do_not_disturb,
@@ -63,7 +63,7 @@ class Status(commands.Cog):
     @commands.command(name="suffer", aliases=["evd"])
     async def command_suffering(self, ctx):
         if self.bot.debug:
-            print("command_suffering.")
+            print("STATUS CHANGE CALLED: \nstatus set to Suffer")
 
         await self.bot.change_presence(
             status=discord.Status.idle,
