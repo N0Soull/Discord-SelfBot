@@ -69,6 +69,7 @@ class Bot(commands.Bot):
         if self.debug:
             print(f"the current token is: {token}")
 
+        # sets standart presense (status: idle activity: listenting)
         await self.change_presence(
             status=discord.Status.idle,
             activity=discord.Activity(
