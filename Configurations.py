@@ -47,7 +47,7 @@ class Configurations(commands.Cog):
         await self.save_config(config)
         await ctx.reply(f"Debug mode {'enabled' if mode else 'disabled'}.")
         if self.bot.debug:
-            print(f"CONFIG CHANGE CALLED: \ndebug switched to {mode}")
+            print(f"CONFIG CHANGE CALLED: \ndebug switched {mode}")
 
     # allows to dynamicaly take changes to config
     # TODO fix this command, rn it just reloads the module instead of config 
