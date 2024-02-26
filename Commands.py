@@ -44,7 +44,7 @@ class Commands(commands.Cog):
         if self.bot.debug:
             print(f"COMMAND CALLED: \nnew COG {cog} loaded")
 
-# defining custom help message
+# custom help message
 help_message: str = """
 Commands format:
 ``command`` [shortcuts] - Explanation with extra notes
@@ -55,7 +55,6 @@ Available commands:
         ``help`` - Shows this message
         ``reload`` - reloads any cog
         ``load``- loads a new cog module on the go
-        ``setuser`` - sets the username in config file
         ``setprefix`` - lets the user define prefix
         ``debug`` [db] - toggles debug mode on and off
         ``reloadconfig`` [reloadcfg] - reloads the main config module(not working as of right now)
@@ -75,7 +74,7 @@ Available commands:
     List of emotes:
         <insert your emote shortcuts here>
 
-        USE THIS SELFBOT AT YOUR OWN RISK, IT IS AGAINST DISCORD'S ToS!
+    selfbot`s are against discord`s ToS but if you are seeing this message then you dont care or you know it allready so use this at you`r own risk...
 """
 
 async def setup(bot):
