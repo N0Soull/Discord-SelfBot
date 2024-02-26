@@ -36,9 +36,7 @@ this can be aswell changed in code/[`config.json`](./config.json)
 - ```>removeemote``` simply removes the entry from config.
 - ```>reload``` Reloads any of the currently loaded cogs to react to code changes on runtime without having to restart the bot
 - ```>load``` Loads a newly created cog on runtime without having to restart the bot
-- ```>setuser``` changes the username in config file
 - ```>debug``` switches the debug mode ON/OFF
-- ```>whoami``` let´s the user see under which name the bot is working
 
 - `config manipulation features are still in progress, they will be done soon though`
 - `logout command is still under development becouse i want to make it as reliable as possible`
