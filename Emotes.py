@@ -33,7 +33,7 @@ class Emotes(commands.Cog):
     async def emote(self, ctx, *, emote_name: str):
         if emote_name in self.emotes:
             emote_id, ext = self.emotes[emote_name]
-            emote_url = f"https://cdn.discordapp.com/emojis/{emote_id}.{ext}?size=44&quality=lossless"
+            emote_url = f"https://cdn.discordapp.com/emojis/{emote_id}.{ext}?size=44&quality=lossless" # deconstructed emote link for the replacement
             await ctx.message.edit(content=emote_url)
         else:
             await ctx.message.edit(content="Invalid emote name.")
