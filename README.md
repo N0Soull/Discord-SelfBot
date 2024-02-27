@@ -16,7 +16,7 @@ This project is a Discord selfbot powered by [`this`](https://github.com/dolfies
 
 ### coming soon
 
-as of right now no more feutures are planned
+as of right now no more features are planned
 
 ## Available commands
 
