@@ -1,8 +1,11 @@
 import discord
 import os
+import fade
+import colorama
 import json
 from discord.ext import commands
 from dotenv import load_dotenv
+from colorama import Fore as F
 # testing newly created branch
 
 # TODO create logout command (as of right now it only works in a main module and act's like it doesnt exsist)
@@ -57,12 +60,26 @@ class Bot(commands.Bot):
 
         for cog_file in cog_files:
             cog_path = f"{self.cogs_folder}.{cog_file}"
-            await self.load_extension(cog_path)
-            print(f"Loaded extension {cog_path}")
+            try:
+                await self.load_extension(cog_path)
+                print(f"{F.GREEN}[+]{F.LIGHTWHITE_EX} Loaded {cog_file}")
+
+            except Exception as e:
+                print(
+                    f"{F.RED}[-]{F.LIGHTWHITE_EX} Failed to load {cog_file}.\n  Error: {F.RED}{e}{F.RESET}")
+                exit()
             
     # on ready message
     async def on_ready(self):
-        print(f"Logged in as: {self.user}")
+        """Print a fancy banner."""
+        print(fade.purpleblue("""
+   _____             ____                   ____        __ 
+  / ___/____  __  __/ / /__  __________    / __ )____  / /_
+  \__ \/ __ \/ / / / / / _ \/ ___/ ___/   / __  / __ \/ __/
+ ___/ / /_/ / /_/ / / /  __(__  |__  )   / /_/ / /_/ / /_  
+/____/\____/\__,_/_/_/\___/____/____/   /_____/\____/\__/  
+                              
+           """))
         if self.debug:
             print(f"the current token is: {token}")
 
