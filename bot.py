@@ -3,6 +3,7 @@ import os
 import json
 from discord.ext import commands
 from dotenv import load_dotenv
+# testing newly created branch
 
 # TODO create logout command (as of right now it only works in a main module and act's like it doesnt exsist)
 
