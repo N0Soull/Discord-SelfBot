@@ -55,23 +55,36 @@ git clone https://github.com/N0Soull/Self-bot.git
 
 ---
 
-Set up & enter a virtual environment
+### Set up & enter a virtual environment
+
+`for linux/unix:`
+
+install and create the virtual enviroment
+
+```bash
+pip install virtualenv
+virtualenv .venv
+```
+
+then activate it
+
+```shell
+source .venv/bin/activate
+```
+
+`for windows (powershell):`
+
+install and create install and create the virtual enviroment
 
 ```shell
 pip install virtualenv
-py -m venv .venv
+python -m venv .venv
 ```
 
-for linux/unix:
+then activate it
 
 ```shell
-source venv/bin/activate
-```
-
-for windows (powershell):
-
-```shell
-.\venv\Scripts\activate
+.venv\Scripts\activate
 ```
 
 ---
