@@ -1,7 +1,6 @@
 import discord
 import os
 import fade
-import colorama
 import json
 from discord.ext import commands
 from dotenv import load_dotenv
