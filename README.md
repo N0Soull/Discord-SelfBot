@@ -50,7 +50,7 @@ this can be aswell changed in code/[`config.json`](./config.json)
 To set up this project, clone this repository
 
 ```shell
-git clone https://github.com/N0Soull/Python-SelfBot.git
+git clone https://github.com/N0Soull/Discord-SelfBot.git
 ```
 
 ---
