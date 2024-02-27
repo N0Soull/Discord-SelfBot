@@ -47,15 +47,18 @@ class Bot(commands.Bot):
         )
         # loads cog modules
         self.remove_command("help")
-        self.initial_extensions = ["Emotes", "Status", "Commands", "Configurations", "MessageCmd"]
+        self.cogs_folder = "cogs"
         self.debug = debug
 
-    # extention load message
+    # extension load message
     async def setup_hook(self):
-        for extension in self.initial_extensions:
-            await self.load_extension(extension)
-            print(f"Loaded extension {extension}")
+        cog_files = [f[:-3] for f in os.listdir(self.cogs_folder) if f.endswith(".py")]
 
+        for cog_file in cog_files:
+            cog_path = f"{self.cogs_folder}.{cog_file}"
+            await self.load_extension(cog_path)
+            print(f"Loaded extension {cog_path}")
+            
     # on ready message
     async def on_ready(self):
         print(f"Logged in as: {self.user}")
