@@ -37,21 +37,6 @@ class Configurations(commands.Cog):
 
         if self.bot.debug:
             print(f"CONFIG CHANGE CALLED: \ndebug switched {mode}")
-
-    # allows to dynamicaly take changes to config
-    # TODO fix this command, rn it just reloads the module instead of config 
-    @commands.command(name="reloadconfig", aliases=["reloadcfg"])
-    async def command_reload_config(self, ctx):
-        try:
-            await self.bot.unload_extension("cogs.Configurations")
-            await self.bot.load_extension("cogs.Configurations")
-            await ctx.reply("Config reloaded successfully.")
-        except Exception as e:
-            await ctx.reply(f"Failed to reload config: {e}")
-
-        if self.bot.debug:
-            print("ENVIROMENT CHANGE CALLED: \nconfig reloaded")
-
             
 async def setup(bot):
     await bot.add_cog(Configurations(bot))
