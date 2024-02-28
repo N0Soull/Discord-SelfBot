@@ -1,6 +1,7 @@
 import discord
 from colorama import Fore as F
 from discord.ext import commands
+from typing import Optional
 
 
 class Status(commands.Cog):
@@ -98,7 +99,7 @@ class Status(commands.Cog):
 
     # sets custom rpc wiht your own activity
     @commands.command(name="rpc", aliases=["RPC"], description="allowes to set custom rpc")
-    async def command_rpc(self, ctx, rpc : str, *, cstm: str):
+    async def command_rpc(self, ctx, rpc : str, *, cstm: Optional [str]):
         msg = ctx.message
 
         if rpc == "listening":
@@ -108,7 +109,7 @@ class Status(commands.Cog):
                 name=cstm,),
             status=self.bot.status)
 
-            await msg.edit(content=f"```yaml\n+ Set your listening status to {cstm}```", delete_after=5)
+            await msg.edit(content=f"```yaml\n+ Set your listening rpc to {cstm}```", delete_after=5)
         elif rpc == "watching":
             await self.bot.change_presence(
             activity=discord.Activity(
@@ -116,7 +117,7 @@ class Status(commands.Cog):
                 name=cstm),
             status=self.bot.status)
         
-            await msg.edit(content=f"```yaml\n+ Set your watching status to {cstm}```", delete_after=5)
+            await msg.edit(content=f"```yaml\n+ Set your watching rpc to {cstm}```", delete_after=5)
         elif rpc == "playing":
             await self.bot.change_presence(
             activity=discord.Activity(
@@ -124,12 +125,14 @@ class Status(commands.Cog):
                 name=cstm),
             status=self.bot.status)
             
-            await msg.edit(content=f"```yaml\n+ Set your playing status to {cstm}```", delete_after=5)
+            await msg.edit(content=f"```yaml\n+ Set your playing rpc to {cstm}```", delete_after=5)
         elif rpc == "stop":
             await ctx.message.delete()
             await self.bot.change_presence(
             activity=None,
             status=self.bot.status)
+
+            await msg.edit(content="```yaml\n Set your rpc to none```", delete_after=5)
 
 async def setup(bot):
     await bot.add_cog(Status(bot))
