@@ -17,10 +17,8 @@ class Commands(commands.Cog):
     # shows help message
     @commands.command(name="help", description="sends help message")
     async def command_help(self, ctx):
-        if self.bot.debug:
-            print("COMMAND CALLED: \nhelp message called.")
-
         await ctx.reply(help_message)
+        print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} help message sent")
 
     # reload cog modules
     @commands.command(name="reload", description="reloads selected cog module")
@@ -61,6 +59,7 @@ class Commands(commands.Cog):
     async def command_github(self, ctx):
         msg = ctx.message
         await msg.edit(content="https://github.com/N0Soull")
+        print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} github link sent")
 
 # custom help message
 help_message: str = """

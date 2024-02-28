@@ -1,4 +1,5 @@
 import discord
+from colorama import Fore as F
 from discord.ext import commands
 
 
@@ -9,8 +10,7 @@ class Status(commands.Cog):
     # Status: idle activity: playing
     @commands.command(name="Available", aliases=["on"])
     async def command_available(self, ctx):
-        if self.bot.debug:
-            print("STATUS CHANGE CALLED: \nstatus set to Available")
+        print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} rpc set to pre-definde one: available")
 
         await self.bot.change_presence(
             status=discord.Status.idle,
@@ -27,8 +27,7 @@ class Status(commands.Cog):
     # Status: invisible Activity: watching (is not shown)
     @commands.command(name="invisible", aliases=["off"])
     async def command_sleep(self, ctx):
-        if self.bot.debug:
-            print("STATUS CHANGE CALLED: \nstatus set to Invisible")
+        print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} rpc set to pre-definde one: invisible")
 
         await self.bot.change_presence(
             status=discord.Status.invisible,
@@ -45,8 +44,7 @@ class Status(commands.Cog):
     # status dnd activity: watching
     @commands.command(name="Work", aliases=["worki"])
     async def command_school(self, ctx):
-        if self.bot.debug:
-            print("STATUS CHANGE CALLED: \nstatus set to Work")
+        print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} rpc set to pre-definde one: working")
 
         await self.bot.change_presence(
             status=discord.Status.do_not_disturb,
@@ -63,8 +61,7 @@ class Status(commands.Cog):
     # status: idle activity: listening
     @commands.command(name="suffer", aliases=["evd"])
     async def command_suffering(self, ctx):
-        if self.bot.debug:
-            print("STATUS CHANGE CALLED: \nstatus set to Suffer")
+        print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} rpc set to pre-definde one: suffer")
 
         await self.bot.change_presence(
             status=discord.Status.idle,

@@ -1,4 +1,5 @@
 import json
+from colorama import Fore as F
 from discord.ext import commands
 
 class Configurations(commands.Cog):
@@ -23,9 +24,7 @@ class Configurations(commands.Cog):
         config["command_prefix"] = prefix
         await self.save_config(config)
         await ctx.reply(f"Command prefix set to: {prefix}")
-        
-        if self.bot.debug:
-            print(f"CONFIG CHANGE: \nprefix changed to {prefix}")
+        print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} prefix set to {prefix}")
 
     # debug mode ON/OFF
     @commands.command(name="debug", aliases=["DB"])

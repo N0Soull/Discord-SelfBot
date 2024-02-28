@@ -65,6 +65,8 @@ class Bot(commands.Bot):
             except Exception as e:
                 print(f"{F.RED}[-]{F.LIGHTWHITE_EX} Failed to load {cog_file}.\n  Error: {F.RED}{e}{F.RESET}")
                 exit()
+                
+    print(f"{F.YELLOW}[?]{F.LIGHTWHITE_EX} Connecting...")
 
     def banner(self):
      """Print a fancy banner."""

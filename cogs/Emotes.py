@@ -1,5 +1,6 @@
 import json
 from discord.ext import commands
+from colorama import Fore as F
 from urllib.parse import urlparse, unquote
 
 
@@ -35,33 +36,32 @@ class Emotes(commands.Cog):
             emote_id, ext = self.emotes[emote_name]
             emote_url = f"https://cdn.discordapp.com/emojis/{emote_id}.{ext}?size=44&quality=lossless" # deconstructed emote link for the replacement
             await ctx.message.edit(content=emote_url)
+            print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} emote {emote_name} sent")
         else:
             await ctx.message.edit(content="Invalid emote name.")
-
-        if self.bot.debug:
-            print(f"EMOTE COMMAND CALLED: \n{emote_name} emote sent ")
 
     # parse emote
     @commands.command(name="Find", aliases=["ParseEmote"])
     async def find(self, ctx, *, emote_url: str):
+
         parsed_url = urlparse(unquote(emote_url))
         emote_id = parsed_url.path.split('/')[-1].split('.')[0]
         file_ext = parsed_url.path.split('/')[-1].split('.')[1]
         reply = f"'': ('{emote_id}', '{file_ext}')"
+
         await ctx.reply(reply)
 
-        if self.bot.debug:
-            print("EMOTE COMMAND CALLED: \nemote find")
+        print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} new emote found")
 
     # add emote
     @commands.command(name="AddEmote", aliases=["addE"])
     async def add_emote(self, ctx, emote_name: str, emote_id: str, ext: str):
         self.emotes[emote_name] = (emote_id, ext)
+
         save_emotes(self.emotes)
         await ctx.send(f"Emote {emote_name} added successfully.")
 
-        if self.bot.debug:
-            print(f"EMOTE COMMAND CALLED: \nnew emote {emote_name} added")
+        print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} emote {emote_name} added")
 
     # remove emote
     @commands.command(name="RemoveEmote", aliases=["rmE"])
@@ -70,11 +70,10 @@ class Emotes(commands.Cog):
             del self.emotes[emote_name]
             save_emotes(self.emotes)
             await ctx.send(f"Emote {emote_name} removed successfully.")
+            print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} emote {emote_name} removed")
         else:
             await ctx.send("Emote not found.")
-
-        if self.bot.debug:
-            print(f"EMOTE COMMAND CALLED: \nnew emote {emote_name} removed")
+            print(f"{F.RED}[-]{F.LIGHTWHITE_EX} Failed to delete {emote_name}.")
 
     @commands.command(name='emotelist', description="sends a list with all emote names which are saven in emotes.json file")
     async def list_emotes(self, ctx):
