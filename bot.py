@@ -51,16 +51,6 @@ class Bot(commands.Bot):
         self.debug = debug
         self.banner()
 
-    def banner(self):
-        """Print a fancy banner."""
-    print(fade.purpleblue("""
-   _____             ____                   ____        __ 
-  / ___/____  __  __/ / /__  __________    / __ )____  / /_
-  \__ \/ __ \/ / / / / / _ \/ ___/ ___/   / __  / __ \/ __/
- ___/ / /_/ / /_/ / / /  __(__  |__  )   / /_/ / /_/ / /_  
-/____/\____/\__,_/_/_/\___/____/____/   /_____/\____/\__/  
-                              
-           """))
 
     # extension load message
     async def setup_hook(self):
@@ -73,9 +63,19 @@ class Bot(commands.Bot):
                 print(f"{F.GREEN}[+]{F.LIGHTWHITE_EX} Loaded {cog_file}")
 
             except Exception as e:
-                print(
-                    f"{F.RED}[-]{F.LIGHTWHITE_EX} Failed to load {cog_file}.\n  Error: {F.RED}{e}{F.RESET}")
+                print(f"{F.RED}[-]{F.LIGHTWHITE_EX} Failed to load {cog_file}.\n  Error: {F.RED}{e}{F.RESET}")
                 exit()
+
+    def banner(self):
+     """Print a fancy banner."""
+    print(fade.purpleblue("""
+   _____             ____                   ____        __ 
+  / ___/____  __  __/ / /__  __________    / __ )____  / /_
+  \__ \/ __ \/ / / / / / _ \/ ___/ ___/   / __  / __ \/ __/
+ ___/ / /_/ / /_/ / / /  __(__  |__  )   / /_/ / /_/ / /_  
+/____/\____/\__,_/_/_/\___/____/____/   /_____/\____/\__/  
+                              
+           """))
             
     # on ready message
     async def on_ready(self):
