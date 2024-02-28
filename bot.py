@@ -2,6 +2,7 @@ import discord
 import os
 import fade
 import json
+# import logging
 from discord.ext import commands
 from dotenv import load_dotenv
 from colorama import Fore as F
@@ -45,12 +46,22 @@ class Bot(commands.Bot):
             command_prefix=command_prefix,
             self_bot=self_bot
         )
-        # loads cog modules
-        self.remove_command("help")
-        self.cogs_folder = "cogs"
-        self.debug = debug
+        # loads modules
         self.banner()
-
+        self.cogs_folder = "cogs"
+        self.remove_command("help")
+        self.debug = debug
+        
+    def banner(self):
+     """Print a fancy banner."""
+    print(fade.purpleblue("""
+   _____             ____                   ____        __ 
+  / ___/____  __  __/ / /__  __________    / __ )____  / /_
+  \__ \/ __ \/ / / / / / _ \/ ___/ ___/   / __  / __ \/ __/
+ ___/ / /_/ / /_/ / / /  __(__  |__  )   / /_/ / /_/ / /_  
+/____/\____/\__,_/_/_/\___/____/____/   /_____/\____/\__/  
+                              
+           """))
 
     # extension load message
     async def setup_hook(self):
@@ -67,23 +78,9 @@ class Bot(commands.Bot):
                 exit()
                 
     print(f"{F.YELLOW}[?]{F.LIGHTWHITE_EX} Connecting...")
-
-    def banner(self):
-     """Print a fancy banner."""
-    print(fade.purpleblue("""
-   _____             ____                   ____        __ 
-  / ___/____  __  __/ / /__  __________    / __ )____  / /_
-  \__ \/ __ \/ / / / / / _ \/ ___/ ___/   / __  / __ \/ __/
- ___/ / /_/ / /_/ / / /  __(__  |__  )   / /_/ / /_/ / /_  
-/____/\____/\__,_/_/_/\___/____/____/   /_____/\____/\__/  
-                              
-           """))
             
     # on ready message
     async def on_ready(self):
-        if self.debug:
-            print(f"the current token is: {token}")
-
         # sets standart presense (status: idle activity: listenting)
         await self.change_presence(
             status=discord.Status.idle,
