@@ -49,6 +49,18 @@ class Bot(commands.Bot):
         self.remove_command("help")
         self.cogs_folder = "cogs"
         self.debug = debug
+        self.banner()
+
+    def banner(self):
+        """Print a fancy banner."""
+    print(fade.purpleblue("""
+   _____             ____                   ____        __ 
+  / ___/____  __  __/ / /__  __________    / __ )____  / /_
+  \__ \/ __ \/ / / / / / _ \/ ___/ ___/   / __  / __ \/ __/
+ ___/ / /_/ / /_/ / / /  __(__  |__  )   / /_/ / /_/ / /_  
+/____/\____/\__,_/_/_/\___/____/____/   /_____/\____/\__/  
+                              
+           """))
 
     # extension load message
     async def setup_hook(self):
@@ -67,15 +79,6 @@ class Bot(commands.Bot):
             
     # on ready message
     async def on_ready(self):
-        """Print a fancy banner."""
-        print(fade.purpleblue("""
-   _____             ____                   ____        __ 
-  / ___/____  __  __/ / /__  __________    / __ )____  / /_
-  \__ \/ __ \/ / / / / / _ \/ ___/ ___/   / __  / __ \/ __/
- ___/ / /_/ / /_/ / / /  __(__  |__  )   / /_/ / /_/ / /_  
-/____/\____/\__,_/_/_/\___/____/____/   /_____/\____/\__/  
-                              
-           """))
         if self.debug:
             print(f"the current token is: {token}")
 

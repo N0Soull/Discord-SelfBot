@@ -7,13 +7,12 @@ class Commands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    # test command, similar to ping-pong
-    @commands.command(name="test", aliases=["t"], description="tests if the bot is working and can send messages")
+    # test command, measures latence and just tests if the bot is even working
+    @commands.command(name="ping", aliases=["test"], description="tests if the bot is working and test latency")
     async def command_test(self, ctx):
-        if self.bot.debug:
-            print("COMMAND CALLED: \nTest called.")
-
-        await ctx.reply("Working.")
+        msg = ctx.message
+        latency = round(self.bot.latency * 1000)
+        await msg.edit(content=f"```yaml\nThe bot's latency is {latency}ms```", delete_after=5)
 
     # shows help message
     @commands.command(name="help", description="sends help message")

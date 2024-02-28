@@ -78,5 +78,61 @@ class Status(commands.Cog):
         if ctx.message:
             await ctx.message.delete()
 
+    # sets status
+    @commands.command(name="status", description="allows you to just change the status")
+    async def command_status(self, ctx, status):
+        msg = ctx.message
+
+        if status == "online":
+            await self.bot.change_presence(status=discord.Status.online)
+            await msg.edit(content="```yaml\nChanged status to online.```", delete_after=5)
+        elif status == "offline":
+            await self.bot.change_presence(status=discord.Status.invisible)
+            await msg.edit(content="```yaml\nChanged status to offline```", delete_after=5)
+        elif status == "idle":
+            await self.bot.change_presence(status=discord.Status.idle)
+            await msg.edit(content="```yaml\nChanged status to idle.```", delete_after=5)
+        elif status == "dnd":
+            await self.bot.change_presence(status=discord.Status.dnd)
+            await msg.edit(content="```yaml\nChanged status to do not disturb.```", delete_after=5)
+        elif status == "none":
+            await self.bot.change_presence(status=None)
+            await msg.edit(content="```yaml\nChanged status to none.```", delete_after=5)
+
+    # sets custom rpc wiht your own activity
+    @commands.command(name="rpc", aliases=["RPC"], description="allowes to set custom rpc")
+    async def command_rpc(self, ctx, rpc : str, *, cstm: str):
+        msg = ctx.message
+
+        if rpc == "listening":
+            await self.bot.change_presence(
+            activity=discord.Activity(
+                type=discord.ActivityType.listening,
+                name=cstm,),
+            status=self.bot.status)
+
+            await msg.edit(content=f"```yaml\n+ Set your listening status to {cstm}```", delete_after=5)
+        elif rpc == "watching":
+            await self.bot.change_presence(
+            activity=discord.Activity(
+                type=discord.ActivityType.watching,
+                name=cstm),
+            status=self.bot.status)
+        
+            await msg.edit(content=f"```yaml\n+ Set your watching status to {cstm}```", delete_after=5)
+        elif rpc == "playing":
+            await self.bot.change_presence(
+            activity=discord.Activity(
+                type=discord.ActivityType.playing,
+                name=cstm),
+            status=self.bot.status)
+            
+            await msg.edit(content=f"```yaml\n+ Set your playing status to {cstm}```", delete_after=5)
+        elif rpc == "stop":
+            await ctx.message.delete()
+            await self.bot.change_presence(
+            activity=None,
+            status=self.bot.status)
+
 async def setup(bot):
     await bot.add_cog(Status(bot))
