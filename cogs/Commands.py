@@ -1,19 +1,18 @@
 import os
 import sys
 from discord.ext import commands
-from colorama import Fore
+from colorama import Fore as F
 
 class Commands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    # test command, similar to ping-pong
-    @commands.command(name="test", aliases=["t"], description="tests if the bot is working and can send messages")
+    # test command, measures latence and just tests if the bot is even working
+    @commands.command(name="ping", aliases=["test"], description="tests if the bot is working and test latency")
     async def command_test(self, ctx):
-        if self.bot.debug:
-            print("COMMAND CALLED: \nTest called.")
-
-        await ctx.reply("Working.")
+        msg = ctx.message
+        latency = round(self.bot.latency * 1000)
+        await msg.edit(content=f"```yaml\nThe bot's latency is {latency}ms```", delete_after=5)
 
     # shows help message
     @commands.command(name="help", description="sends help message")
@@ -29,11 +28,10 @@ class Commands(commands.Cog):
         try:
             await self.bot.reload_extension(cog)
             await ctx.send(f"Reloaded extension `{cog}` successfully.")
+            print(f"{F.GREEN}[+]{F.LIGHTWHITE_EX} reloaded {cog}")
         except Exception as e:
             await ctx.send(f"Failed to reload extension `{cog}`. {type(e).__name__}: {e}")
-
-        if self.bot.debug:
-            print(f"COMMAND CALLED: \nCOG {cog} reloaded")
+            print(f"{F.RED}[-]{F.LIGHTWHITE_EX} Failed to load {cog}.\n  Error: {F.RED}{e}{F.RESET}")
 
     # loads new cog on the go
     @commands.command(name="load", description="loads new cog module")
@@ -41,22 +39,21 @@ class Commands(commands.Cog):
         try:
             await self.bot.load_extension(cog)
             await ctx.reply(f"Loaded extension `{cog} successfully.")
+            print(f"{F.GREEN}[+]{F.LIGHTWHITE_EX} Loaded {cog}")
         except Exception as e:
             await ctx.reply(f"Failed to load extension `{cog}`. {type(e).__name__}: {e}")
-            
-        if self.bot.debug:
-            print(f"COMMAND CALLED: \nnew COG {cog} loaded")
+            print(f"{F.RED}[-]{F.LIGHTWHITE_EX} Failed to load {cog}.\n  Error: {F.RED}{e}{F.RESET}")
 
     @commands.command(name="restart", description="restarts bot.py")
     async def command_restart(self, ctx):
         await ctx.message.delete()
+        print(f"{F.GREEN}[+]{F.LIGHTWHITE_EX} restarted the bot")
         os.execv(sys.executable, ['python'] + ['./bot.py'])
 
     @commands.command(name="logout", description="Logs you out of the bot")
     async def command_logout(self, ctx):
         await ctx.message.delete()
-        print(
-            f"{Fore.GREEN}[+]{Fore.LIGHTWHITE_EX} Logged out of the account {Fore.LIGHTBLUE_EX}{self.bot.user}")
+        print(f"{F.GREEN}[+]{F.LIGHTWHITE_EX} Logged out of the account {F.LIGHTBLUE_EX}{self.bot.user}")
         await self.bot.close()
 
 # custom help message

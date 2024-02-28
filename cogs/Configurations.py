@@ -25,7 +25,7 @@ class Configurations(commands.Cog):
         await ctx.reply(f"Command prefix set to: {prefix}")
         
         if self.bot.debug:
-            print(f"CONFIG CHANGE CALLED: \nprefix changed to {prefix}")
+            print(f"CONFIG CHANGE: \nprefix changed to {prefix}")
 
     # debug mode ON/OFF
     @commands.command(name="debug", aliases=["DB"])
@@ -36,7 +36,7 @@ class Configurations(commands.Cog):
         await ctx.reply(f"Debug mode {'enabled' if mode else 'disabled'}.")
 
         if self.bot.debug:
-            print(f"CONFIG CHANGE CALLED: \ndebug switched {mode}")
+            print(f"CONFIG CHANGE: \ndebug switched {mode}")
             
 async def setup(bot):
     await bot.add_cog(Configurations(bot))
