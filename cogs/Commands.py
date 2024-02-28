@@ -1,11 +1,14 @@
+import os
+import sys
 from discord.ext import commands
+from colorama import Fore
 
 class Commands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
     # test command, similar to ping-pong
-    @commands.command(name="test", aliases=["t"])
+    @commands.command(name="test", aliases=["t"], description="tests if the bot is working and can send messages")
     async def command_test(self, ctx):
         if self.bot.debug:
             print("COMMAND CALLED: \nTest called.")
@@ -13,7 +16,7 @@ class Commands(commands.Cog):
         await ctx.reply("Working.")
 
     # shows help message
-    @commands.command(name="help")
+    @commands.command(name="help", description="sends help message")
     async def command_help(self, ctx):
         if self.bot.debug:
             print("COMMAND CALLED: \nhelp message called.")
@@ -21,7 +24,7 @@ class Commands(commands.Cog):
         await ctx.reply(help_message)
 
     # reload cog modules
-    @commands.command(name="reload")
+    @commands.command(name="reload", description="reloads selected cog module")
     async def reload_cog(self, ctx, *, cog: str):
         try:
             await self.bot.reload_extension(cog)
@@ -33,7 +36,7 @@ class Commands(commands.Cog):
             print(f"COMMAND CALLED: \nCOG {cog} reloaded")
 
     # loads new cog on the go
-    @commands.command(name="load")
+    @commands.command(name="load", description="loads new cog module")
     async def command_load_cog(self, ctx, *, cog: str):
         try:
             await self.bot.load_extension(cog)
@@ -43,6 +46,18 @@ class Commands(commands.Cog):
             
         if self.bot.debug:
             print(f"COMMAND CALLED: \nnew COG {cog} loaded")
+
+    @commands.command(name="restart", description="restarts bot.py")
+    async def command_restart(self, ctx):
+        await ctx.message.delete()
+        os.execv(sys.executable, ['python'] + ['./bot.py'])
+
+    @commands.command(name="logout", description="Logs you out of the bot")
+    async def command_logout(self, ctx):
+        await ctx.message.delete()
+        print(
+            f"{Fore.GREEN}[+]{Fore.LIGHTWHITE_EX} Logged out of the account {Fore.LIGHTBLUE_EX}{self.bot.user}")
+        await self.bot.close()
 
 # custom help message
 help_message: str = """
