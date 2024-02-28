@@ -1,6 +1,6 @@
 # <img align="left" alt="Python" width="30px" style="padding:5px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-plain.svg" /> Python Self-bot
 
-`notice! this project is against Discord's ToS and it's only a proof of concept and I cannot recommend using it. Do so at your own risk.`
+`notice! this project This project violates Discord's ToS and it's only a proof of concept and I cannot recommend using it. Do so at your own risk.`
 
 ---
 
@@ -26,7 +26,7 @@ command Prefix: `>`
 |
 this can be aswell changed in code/[`config.json`](./config.json)
 
-- ```>help``` shows a custom help message which only the sender can see.
+- ```>help``` custom help message visible only to the sender.
 - ```>available``` alias ```>on``` | this changes the RPC and status to idle
 - ```>Work``` changes RPC and turns on "Do Not Disturb" status.
 - ```>invisible``` alias ```>off``` | Switches the status to Invisible.
@@ -39,7 +39,7 @@ this can be aswell changed in code/[`config.json`](./config.json)
 - ```>debug``` switches the debug mode ON/OFF
 
 - `config manipulation features are still in progress, they will be done soon though`
-- `logout command is still under development becouse i want to make it as reliable as possible`
+- `logout command is still under development because i want to make it as reliable as possible`
 
 ## Project Status
 
@@ -74,7 +74,7 @@ source .venv/bin/activate
 
 `for windows (powershell):`
 
-install and create install and create the virtual enviroment
+install and create install and create the virtual environment
 
 ```shell
 pip install virtualenv
