@@ -47,7 +47,7 @@ class Commands(commands.Cog):
     @commands.command(name="restart", description="restarts bot.py")
     async def command_restart(self, ctx):
         await ctx.message.delete()
-        print(f"{F.GREEN}[+]{F.LIGHTWHITE_EX} restarted the bot")
+        print(f"{F.GREEN}[+]{F.LIGHTWHITE_EX} restarting the bot")
         os.execv(sys.executable, ['python'] + ['./bot.py'])
 
     @commands.command(name="logout", description="Logs you out of the bot")
@@ -55,6 +55,12 @@ class Commands(commands.Cog):
         await ctx.message.delete()
         print(f"{F.GREEN}[+]{F.LIGHTWHITE_EX} Logged out of the account {F.LIGHTBLUE_EX}{self.bot.user}")
         await self.bot.close()
+
+    #just for fun command
+    @commands.command(name="github", description="send my github just for fun")
+    async def command_github(self, ctx):
+        msg = ctx.message
+        await msg.edit(content="https://github.com/N0Soull")
 
 # custom help message
 help_message: str = """
