@@ -76,5 +76,15 @@ class Emotes(commands.Cog):
         if self.bot.debug:
             print(f"EMOTE COMMAND CALLED: \nnew emote {emote_name} removed")
 
+    @commands.command(name='emotelist', description="sends a list with all emote names which are saven in emotes.json file")
+    async def list_emotes(self, ctx):
+        with open('./cfg/emotes.json', 'r') as file:
+            emotes_data = json.load(file)
+
+        emote_names = list(emotes_data.keys())
+        emote_names_str = ', '.join(emote_names)
+
+        await ctx.message.edit(f"```yaml\n Emotes: {emote_names_str}```")
+
 async def setup(bot):
     await bot.add_cog(Emotes(bot))
