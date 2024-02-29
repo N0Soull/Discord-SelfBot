@@ -1,4 +1,5 @@
 import asyncio
+from colorama import Fore as F
 from discord.ext import commands
 
 # this cog is only for the replacement of the embed
@@ -31,6 +32,7 @@ class MessageCmd(commands.Cog):
                 new_text: str = message.content.replace(target, replacement)
                 await asyncio.sleep(sleep_time)
                 await message.edit(content=new_text)
+                print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} link edited, replaced with {replacement}")
                 break
 
     # on_message_edit gets called when the local user edits one of his own messages
