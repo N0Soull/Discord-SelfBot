@@ -43,7 +43,7 @@ this can be aswell changed in code/[`config.json`](./config.json)
 
 ## Project Status
 
-`finished and ready to use but some small bug fixes are still needed`
+`finished and ready to use, if you encounter some errors or bugs feel free to open new issue`
 
 ## Installation
 
