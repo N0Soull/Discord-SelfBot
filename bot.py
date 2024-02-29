@@ -2,7 +2,6 @@ import discord
 import os
 import fade
 import json
-# import logging
 from discord.ext import commands
 from dotenv import load_dotenv
 from colorama import Fore as F
@@ -51,17 +50,6 @@ class Bot(commands.Bot):
         self.cogs_folder = "cogs"
         self.remove_command("help")
         self.debug = debug
-        
-    def banner(self):
-     """Print a fancy banner."""
-    print(fade.purpleblue("""
-   _____             ____                   ____        __ 
-  / ___/____  __  __/ / /__  __________    / __ )____  / /_
-  \__ \/ __ \/ / / / / / _ \/ ___/ ___/   / __  / __ \/ __/
- ___/ / /_/ / /_/ / / /  __(__  |__  )   / /_/ / /_/ / /_  
-/____/\____/\__,_/_/_/\___/____/____/   /_____/\____/\__/  
-                              
-           """))
 
     # extension load message
     async def setup_hook(self):
@@ -76,8 +64,18 @@ class Bot(commands.Bot):
             except Exception as e:
                 print(f"{F.RED}[-]{F.LIGHTWHITE_EX} Failed to load {cog_file}.\n  Error: {F.RED}{e}{F.RESET}")
                 exit()
-                
-    print(f"{F.YELLOW}[?]{F.LIGHTWHITE_EX} Connecting...")
+        print(f"{F.YELLOW}[?]{F.LIGHTWHITE_EX} Connecting...")
+
+    def banner(self):
+     """Print a fancy banner."""
+    print(fade.purpleblue("""
+   _____             ____                   ____        __ 
+  / ___/____  __  __/ / /__  __________    / __ )____  / /_
+  \__ \/ __ \/ / / / / / _ \/ ___/ ___/   / __  / __ \/ __/
+ ___/ / /_/ / /_/ / / /  __(__  |__  )   / /_/ / /_/ / /_  
+/____/\____/\__,_/_/_/\___/____/____/   /_____/\____/\__/  
+                              
+           """))
             
     # on ready message
     async def on_ready(self):
