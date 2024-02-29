@@ -1,5 +1,6 @@
 import os
 import sys
+import discord
 from discord.ext import commands
 from colorama import Fore as F
 
@@ -50,6 +51,10 @@ class Commands(commands.Cog):
 
     @commands.command(name="logout", description="Logs you out of the bot")
     async def command_logout(self, ctx):
+        await self.bot.change_presence(
+            activity=None,
+            status=discord.Status.invisible
+            )
         await ctx.message.delete()
         print(f"{F.GREEN}[+]{F.LIGHTWHITE_EX} Logged out of the account {F.LIGHTBLUE_EX}{self.bot.user}")
         await self.bot.close()
