@@ -84,6 +84,7 @@ class Emotes(commands.Cog):
         emote_names_str = ', '.join(emote_names)
 
         await ctx.message.edit(f"```yaml\n Emotes: {emote_names_str}```")
+        print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} emote list command used")
 
 async def setup(bot):
     await bot.add_cog(Emotes(bot))
