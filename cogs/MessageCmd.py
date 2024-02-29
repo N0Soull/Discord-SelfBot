@@ -2,6 +2,8 @@ import asyncio
 from colorama import Fore as F
 from discord.ext import commands
 
+"""NOTE this module was created by TherioJunior"""
+
 # this cog is only for the replacement of the embed
 class MessageCmd(commands.Cog):
     def __init__(self, bot):
