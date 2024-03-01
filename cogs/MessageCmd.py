@@ -1,13 +1,23 @@
 import asyncio
+import json
 from colorama import Fore as F
 from discord.ext import commands
 
-"""NOTE this module was created by TherioJunior: https://gitlab.com/TherioJunior"""
+"""NOTE this module was created by TherioJunior: https://gitlab.com/TherioJunior
+        and just slightly modifed by yours truly"""
 
 # this cog is only for the replacement of the embed
 class MessageCmd(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        self.load_replacements()
+
+    def load_replacements(self):
+        try:
+            with open('./cfg/linkRules.json', 'r') as file:
+                self.replacements = json.load(file)
+        except FileNotFoundError:
+            self.replacements = {}
 
     # on_message gets called when any message is sent into any channel
     @commands.Cog.listener()
@@ -15,26 +25,17 @@ class MessageCmd(commands.Cog):
         if message.author != self.bot.user:
             return
 
-        # Twitter URLs can have a low embed replacement time becouse of the awesome changes that elon made
+        # Twitter URLs can have a low embed replacement time because of the awesome changes that Elon made
         # resulting in not having to wait for the original embed to load anymore.
-        # Other sites however have their own embeds which need to load pre-editing, otherwise the edited URL will have the old embed.
+        # Other sites, however, have their own embeds which need to load pre-editing, otherwise, the edited URL will have the old embed.
 
-        """":original.link": (":replace.link", embed level)"""
-        replacements: dict = {
-            "://twitter.com": ("://vxtwitter.com", 1),
-            "://x.com": ("://vxtwitter.com", 1),
-            "piped.kavin.rocks": ("youtube.com", 4),
-            "watch.whatever.social": ("youtube.com", 4),
-            "piped.adminforge.de": ("youtube.com", 4),
-        }
-        
         # link-replace loop
-        for target, (replacement, sleep_time) in replacements.items():
+        for target, (replacement, sleep_time) in self.replacements.items():
             if target in message.content:
                 new_text: str = message.content.replace(target, replacement)
                 await asyncio.sleep(sleep_time)
                 await message.edit(content=new_text)
-                print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} link edited, replaced with {replacement}")
+                print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} link edited, {target} replaced with {replacement}")
                 break
 
     # on_message_edit gets called when the local user edits one of his own messages
