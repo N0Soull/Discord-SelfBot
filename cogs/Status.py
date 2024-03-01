@@ -84,18 +84,23 @@ class Status(commands.Cog):
         if status == "online":
             await self.bot.change_presence(status=discord.Status.online)
             await msg.edit(content="```yaml\nChanged status to online.```", delete_after=5)
+            print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} status set to {F.LIGHTGREEN_EX}{status}")
         elif status == "offline":
             await self.bot.change_presence(status=discord.Status.invisible)
             await msg.edit(content="```yaml\nChanged status to offline```", delete_after=5)
+            print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} status set to {F.LIGHTBLACK_EX}{status}")
         elif status == "idle":
             await self.bot.change_presence(status=discord.Status.idle)
             await msg.edit(content="```yaml\nChanged status to idle.```", delete_after=5)
+            print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} status set to {F.LIGHTYELLOW_EX}{status}")
         elif status == "dnd":
             await self.bot.change_presence(status=discord.Status.dnd)
             await msg.edit(content="```yaml\nChanged status to do not disturb.```", delete_after=5)
+            print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} status set to {F.LIGHTRED_EX}{status}")
         elif status == "none":
             await self.bot.change_presence(status=None)
             await msg.edit(content="```yaml\nChanged status to none.```", delete_after=5)
+            print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} status set to {status}")
 
     # sets custom rpc wiht your own activity
     @commands.command(name="rpc", aliases=["RPC"], description="allowes to set custom rpc")
@@ -110,6 +115,7 @@ class Status(commands.Cog):
             status=self.bot.status)
 
             await msg.edit(content=f"```yaml\n+ Set your listening rpc to {cstm}```", delete_after=5)
+            print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} RPC set to {F.LIGHTCYAN_EX}{rpc}{F.LIGHTWHITE_EX} with a custom message '{F.LIGHTBLUE_EX}{cstm}{F.LIGHTWHITE_EX}'")
         elif rpc == "watching":
             await self.bot.change_presence(
             activity=discord.Activity(
@@ -118,6 +124,7 @@ class Status(commands.Cog):
             status=self.bot.status)
         
             await msg.edit(content=f"```yaml\n+ Set your watching rpc to {cstm}```", delete_after=5)
+            print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} RPC set to {F.LIGHTCYAN_EX}{rpc}{F.LIGHTWHITE_EX} with a custom message '{F.LIGHTBLUE_EX}{cstm}{F.LIGHTWHITE_EX}'")
         elif rpc == "playing":
             await self.bot.change_presence(
             activity=discord.Activity(
@@ -126,6 +133,7 @@ class Status(commands.Cog):
             status=self.bot.status)
             
             await msg.edit(content=f"```yaml\n+ Set your playing rpc to {cstm}```", delete_after=5)
+            print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} RPC set to {F.LIGHTCYAN_EX}{rpc}{F.LIGHTWHITE_EX} with a custom message '{F.LIGHTBLUE_EX}{cstm}{F.LIGHTWHITE_EX}'")
         elif rpc == "stop":
             await ctx.message.delete()
             await self.bot.change_presence(
@@ -133,6 +141,7 @@ class Status(commands.Cog):
             status=self.bot.status)
 
             await msg.edit(content="```yaml\n Set your rpc to none```", delete_after=5)
+            print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} RPC set to {F.LIGHTCYAN_EX}{rpc}")
 
 async def setup(bot):
     await bot.add_cog(Status(bot))
