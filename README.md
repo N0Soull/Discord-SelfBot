@@ -13,6 +13,7 @@ This project is a Discord selfbot powered by [`this`](https://github.com/dolfies
 - emotes add through chat and one simple command
 - config file edit for easier use
 - automatic embed replacement
+- info logging
 
 ### coming soon
 
