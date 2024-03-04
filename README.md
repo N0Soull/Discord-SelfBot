@@ -17,11 +17,11 @@ This project is a Discord selfbot powered by [`this`](https://github.com/dolfies
 
 ### coming soon
 
-this section is outdated...as of right now nothing is planned
+(Section outdated, no plans at the moment)
 
 ## Available commands
 
-This section might be outdated, so refer to the code for more up to date commands.
+This list might be outdated, consult the code for updated commands.
 
 command Prefix: `>`
 |
@@ -38,13 +38,14 @@ this can be aswell changed in code/[`config.json`](./config.json)
 - ```>reload``` Reloads any of the currently loaded cogs to react to code changes on runtime without having to restart the bot
 - ```>load``` Loads a newly created cog on runtime without having to restart the bot
 - ```>debug``` switches the debug mode ON/OFF
+- ```>logout``` simply logs out the bot
+- ```>restart``` restarts bot.py
 
 - `config manipulation features are still in progress, they will be done soon though`
-- `logout command is still under development because i want to make it as reliable as possible`
 
 ## Project Status
 
-`finished and ready to use, if you encounter some errors or bugs feel free to open new issue`
+`Project finished and ready for use. Feel free to report issues or errors.`
 
 ## Installation
 
@@ -90,7 +91,7 @@ then activate it
 
 ---
 
-Install all required libraries mentioned in the `requirements.txt` file, with this command:
+Install necessary dependencies listed in `requirements.txt`:
 
 ```python
 pip install -r requirements.txt
@@ -106,7 +107,7 @@ TOKEN=YOUR_DISCORD_TOKEN_HERE
 
 replace `YOUR_DISCORD_TOKEN_HERE` with your actual discord token
 
-To obtain your discord token, you can have a look [`here`](https://discordpy-self.readthedocs.io/en/latest/token.html). or just google it.
+To obtain your discord token, you can have a look [`here`](https://discordpy-self.readthedocs.io/en/latest/token.html), or search online.
 
 ---
 
