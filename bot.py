@@ -68,7 +68,7 @@ class Bot(commands.Bot):
 
     def banner(self):
      """Print a fancy banner."""
-    print(fade.purpleblue("""
+    print(fade.purplepink("""
    _____             ____                   ____        __ 
   / ___/____  __  __/ / /__  __________    / __ )____  / /_
   \__ \/ __ \/ / / / / / _ \/ ___/ ___/   / __  / __ \/ __/
