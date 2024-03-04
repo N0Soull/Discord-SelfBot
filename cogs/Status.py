@@ -11,7 +11,7 @@ class Status(commands.Cog):
     # Status: idle activity: playing
     @commands.command(name="Available", aliases=["on"])
     async def command_available(self, ctx):
-        print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} rpc set to pre-definde one: available")
+        print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} rpc set to pre-definde one: {F.LIGHTGREEN_EX}available")
 
         await self.bot.change_presence(
             status=discord.Status.idle,
@@ -28,7 +28,7 @@ class Status(commands.Cog):
     # Status: invisible Activity: watching (is not shown)
     @commands.command(name="invisible", aliases=["off"])
     async def command_sleep(self, ctx):
-        print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} rpc set to pre-definde one: invisible")
+        print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} rpc set to pre-definde one: {F.BLUE}invisible")
 
         await self.bot.change_presence(
             status=discord.Status.invisible,
@@ -43,9 +43,9 @@ class Status(commands.Cog):
             await ctx.message.delete()
 
     # status dnd activity: watching
-    @commands.command(name="Work", aliases=["worki"])
+    @commands.command(name="work", aliases=["workiwork"])
     async def command_school(self, ctx):
-        print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} rpc set to pre-definde one: working")
+        print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} rpc set to pre-definde one: {F.LIGHTRED_EX}work")
 
         await self.bot.change_presence(
             status=discord.Status.do_not_disturb,
@@ -62,7 +62,7 @@ class Status(commands.Cog):
     # status: idle activity: listening
     @commands.command(name="suffer", aliases=["evd"])
     async def command_suffering(self, ctx):
-        print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} rpc set to pre-definde one: suffer")
+        print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} rpc set to pre-definde one: {F.LIGHTMAGENTA_EX}Suffer")
 
         await self.bot.change_presence(
             status=discord.Status.idle,

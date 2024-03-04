@@ -88,6 +88,7 @@ class Bot(commands.Bot):
             ),
             afk=True # AFK mode: ON/OFF for discord to better catch and force the notifications
         )
+        print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} rpc set to: {F.LIGHTMAGENTA_EX}Start")
 
         if self.debug:
             print("PRESENSE CHANGED: \nDefeault presense")
