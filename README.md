@@ -40,8 +40,8 @@ this can be aswell changed in code/[`config.json`](./config.json)
 - ```>debug``` switches the debug mode ON/OFF
 - ```>logout``` simply logs out the bot
 - ```>restart``` restarts bot.py
-
-- `config manipulation features are still in progress, they will be done soon though`
+- ```>rpc```accepts all availiable presence parameters and a custom message
+- ```>status``` simply changes the status
 
 ## Project Status
 
