@@ -69,7 +69,7 @@ class Commands(commands.Cog):
 # custom help message
 help_message: str = """
 Commands format:
-``command`` [shortcuts] - Explanation with extra notes
+``command`` [alternative shortcuts] - Explanation with extra notes
 
 Available commands:
     Functionality:
@@ -78,7 +78,6 @@ Available commands:
         ``reload`` - reloads any cog
         ``load``- loads a new cog module on the go
         ``setprefix`` - lets the user define prefix
-        ``debug`` [db] - toggles debug mode on and off
         ``restart`` - Restarts the entire bot
         ``logout`` - logs the bot out
         ``github`` - sends my github link
@@ -96,12 +95,16 @@ Available commands:
         ``addemote``[addE] - adds a new emote to emotes.json file, you will need emote name its id and format 
         ``removeemote``[rmE] - removes emote entry from emotes.json file
         ``Find``[findEmote] - allowes you to find emote id/format and create your own shortcut
-        ```emotelist`` - lists all the emote names saven in the emotes.json file
+        ``emotelist`` - lists all the emote names saven in the emotes.json file
 
-    List of emotes:
-        <insert your emote shortcuts here>
+    List of allready preloaded emotes:
+        ``>e`` hehe, fcku, gtfo, damn, sadt, tfuw, hmm, aware
 
-    selfbot`s are against discord`s ToS but if you are seeing this message then you dont care or you know it allready so use this at you`r own risk...
+    Additional features:
+        automatic embed replacement for Twitter/x and automatic link replacement for sites such as piped, whatever social, adminforge and etc...
+        "this idea was taken from TherioJunior"
+
+    selfbot`s are against discord`s ToS but if you are seeing this message then you dont care or you know it allready so use this at you`r own risk blah blah blah...
 """
 
 async def setup(bot):
