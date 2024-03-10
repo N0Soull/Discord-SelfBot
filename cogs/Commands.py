@@ -96,7 +96,7 @@ Available commands:
         ``addemote``[addE] - adds a new emote to emotes.json file, you will need emote name its id and format 
         ``removeemote``[rmE] - removes emote entry from emotes.json file
         ``Find``[findEmote] - allowes you to find emote id/format and create your own shortcut
-        `èmotelist`` - lists all the emote names saven in the emotes.json file
+        ```emotelist`` - lists all the emote names saven in the emotes.json file
 
     List of emotes:
         <insert your emote shortcuts here>
