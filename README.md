@@ -31,7 +31,7 @@ this can be aswell changed in code/[`config.json`](./config.json)
 - ```>available``` alias ```>on``` | this changes the RPC and status to idle
 - ```>Work``` changes RPC and turns on "Do Not Disturb" status.
 - ```>invisible``` alias ```>off``` | Switches the status to Invisible.
-- ```>test``` a simple ping->pong command.
+- ```>ping``` pings the hosat and sends the the response delay in ms.
 - ```>emote``` sends user defined emotes which are saved in a config file
 - ```>addemote``` adds user defined emotes to mentioned before config file.
 - ```>removeemote``` simply removes the entry from config.
