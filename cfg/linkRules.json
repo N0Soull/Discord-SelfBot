@@ -1,6 +1,7 @@
 {
     "://twitter.com": ["://vxtwitter.com", 1],
     "://x.com": ["://fixvx.com", 1],
+    "discuss.whatever.social/r/": ["reddit.com/r/", 4],
     "piped.kavin.rocks": ["youtube.com", 4],
     "watch.whatever.social": ["youtube.com", 4],
     "piped.adminforge.de": ["youtube.com", 4]
