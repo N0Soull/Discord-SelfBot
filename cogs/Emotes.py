@@ -81,17 +81,6 @@ class Emotes(commands.Cog):
             emotes_data = json.load(file)
 
         emote_names = list(emotes_data.keys())
-        emote_names_str = ', '.join(emote_names)
-
-        await ctx.message.edit(f"```yaml\n Emotes: {emote_names_str}```")
-        print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} emote list command used")
-
-    @commands.command(name='emotelistext', description="test command for now")
-    async def list_emotes(self, ctx):
-        with open('./cfg/emotes.json', 'r') as file:
-            emotes_data = json.load(file)
-
-        emote_names = list(emotes_data.keys())
         # native discord emoji link
         base_link = "https://cdn.discordapp.com/emojis/"
         full_links = []
@@ -109,6 +98,7 @@ class Emotes(commands.Cog):
         output = f"**Emotes:**\n``{joined_lines}``"
 
         await ctx.message.edit(output)
+        print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} emote list command used")
 
 async def setup(bot):
     await bot.add_cog(Emotes(bot))
