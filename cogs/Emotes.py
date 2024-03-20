@@ -92,10 +92,11 @@ class Emotes(commands.Cog):
             emotes_data = json.load(file)
 
         emote_names = list(emotes_data.keys())
-
+        # native discord emoji link
         base_link = "https://cdn.discordapp.com/emojis/"
         full_links = []
 
+        # parses the emotes saved in file and creates a link with parsed data, also inserts the values into new formated list
         for emote_name in emote_names:
             if emote_name in self.emotes:
                 emote_id, ext = self.emotes[emote_name]
@@ -103,6 +104,7 @@ class Emotes(commands.Cog):
                 formatted_line = f"<{emote_url}> {''.join(c for c in emote_name if c != ':')}:{ext}"
                 full_links.append(formatted_line)
 
+        # Concatenate the lines with '\n' and add prefix and suffix to preserve monospace font
         joined_lines = '\n'.join(full_links)
         output = f"**Emotes:**\n``{joined_lines}``"
 
