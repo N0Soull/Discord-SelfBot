@@ -75,36 +75,36 @@ Available commands:
     Functionality:
         ``Ping`` [test] - Test if the bot is active (a basic ping pong command)
         ``help`` - Shows this message
-        ``reload`` - reloads any cog
+        ``reload`` - reloads any cog defined
         ``load``- loads a new cog module on the go
         ``setprefix`` - lets the user define prefix
         ``restart`` - Restarts the entire bot
         ``logout`` - logs the bot out
-        ``github`` - sends my github link
+        ``github`` - sends my github link (just for fun idk why rly)
 
     Activity:
         ``ON`` [on] - Sets RPC to your default (can be customized in code)
         ``invisible`` [off] - Sets status to invisible (nothing special)
-        ``work``[worki] - worki work RPC, just for fun (Do Not Disturb status)
-        ``suffer``[evd] - listening to voices in my head RPC (idle status)
-        ``rpc`` - accepts arguments such as watching, listening etc. and a custom status message to that
-        ``status`` - sets your status without changing the rpc
+        ``work`` [worki] - Worki work RPC, just for fun (Do Not Disturb status)
+        ``suffer`` [evd] - Listening to voices in my head RPC (idle status)
+        ``rpc`` - Accepts arguments such as watching, listening etc. and a custom status message to that
+        ``status`` - Sets your status without changing the rpc
 
     Emotes:
-        ``emote`` [e] - Automated emote integration without having Discord Nitro (works on mobile aswell)
-        ``addemote``[addE] - adds a new emote to emotes.json file, you will need emote name its id and format 
-        ``removeemote``[rmE] - removes emote entry from emotes.json file
-        ``Find``[findEmote] - allowes you to find emote id/format and create your own shortcut
-        ``emotelist`` - lists all the emote names saven in the emotes.json file
+        ``emote`` [e] - Automated emote integration without having Discord Nitro (works on mobile as well)
+        ``addemote`` [addE] - Adds a new emote to emotes.json file, you will need emote name its id and format
+        ``removeemote`` [rmE] - Removes emote entry from emotes.json file
+        ``Find`` [findEmote] - Allows you to find emote id/format and create your own shortcut
+        ``emotelist`` - Lists all the emote names saved in the emotes.json file
 
-    List of allready preloaded emotes:
+    List of already preloaded emotes:
         ``>e`` hehe, fcku, gtfo, damn, sadt, tfuw, hmm, aware
 
     Additional features:
-        automatic embed replacement for Twitter/x and automatic link replacement for sites such as piped, whatever social, adminforge and etc...
-        "this idea was taken from TherioJunior"
+        Automatic embed replacement for Twitter/x and automatic link replacement for sites such as piped, whatever social, adminforge, and etc...
+        "This idea was taken from TherioJunior"
 
-    selfbots are against discords ToS but if you are seeing this message then you dont care or you know it allready so use this at your own risk blah blah blah...
+Self-bots are against Discord's ToS but if you are seeing this message then you don't care or you know it already so use this at your own risk blah blah blah...
 """
 
 async def setup(bot):
