@@ -38,7 +38,9 @@ class Emotes(commands.Cog):
             await ctx.message.edit(content=emote_url)
             print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} emote {emote_name} sent")
         else:
-            await ctx.message.edit(content="Invalid emote name.")
+            await ctx.message.delete()
+            print(f"{F.RED}[-]{F.LIGHTWHITE_EX} Invalid Emote name")
+
 
     # parse emote
     @commands.command(name="Find", aliases=["ParseEmote"])
