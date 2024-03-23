@@ -14,7 +14,7 @@ class Commands(commands.Cog):
         msg = ctx.message
         latency = round(self.bot.latency * 1000)
         await msg.edit(content=f"```yaml\nThe bot's latency is {latency}ms```", delete_after=5)
-        print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} bots latency is {latency}")
+        print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} bots latency is {latency}ms")
 
     # shows help message
     @commands.command(name="help", description="sends help message")
