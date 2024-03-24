@@ -17,7 +17,7 @@ This project is a Discord selfbot powered by [`this`](https://github.com/dolfies
 
 ### coming soon
 
-(Section outdated, no plans at the moment)
+i am thinking on adding a separate cog module to handle and log all events to unclutter the code and make error logging more simple
 
 ## Available commands
 
