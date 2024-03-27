@@ -26,6 +26,8 @@ class Configurations(commands.Cog):
         await ctx.reply(f"Command prefix set to: {prefix}")
         print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} prefix set to {prefix}")
 
+'''
+dont know the usecase but i'll keep it here
     # debug mode ON/OFF
     @commands.command(name="debug", aliases=["DB"])
     async def command_debug(self, ctx, mode: bool):
@@ -36,6 +38,6 @@ class Configurations(commands.Cog):
 
         if self.bot.debug:
             print(f"CONFIG CHANGE: \ndebug switched {mode}")
-            
+'''
 async def setup(bot):
     await bot.add_cog(Configurations(bot))
