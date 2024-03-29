@@ -4,11 +4,12 @@ import discord
 from discord.ext import commands
 from colorama import Fore as F
 
+# Defining a class for bot Commands
 class Commands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    # test command, measures latence and just tests if the bot is even working
+    # Command to test bot functionality and measure latency
     @commands.command(name="ping", aliases=["test"], description="tests if the bot is working and test latency")
     async def command_test(self, ctx):
         msg = ctx.message
@@ -16,13 +17,13 @@ class Commands(commands.Cog):
         await msg.edit(content=f"```yaml\nThe bot's latency is {latency}ms```", delete_after=5)
         print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} bots latency is {latency}ms")
 
-    # shows help message
+    # Command to display help message
     @commands.command(name="help", description="sends help message")
     async def command_help(self, ctx):
         await ctx.reply(help_message)
         print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} help message sent")
 
-    # reload cog modules
+    # Command to reload cog modules
     @commands.command(name="reload", description="reloads selected cog module")
     async def reload_cog(self, ctx, *, cog: str):
         try:
@@ -33,7 +34,7 @@ class Commands(commands.Cog):
             await ctx.send(f"Failed to reload extension `{cog}`. {type(e).__name__}: {e}")
             print(f"{F.RED}[-]{F.LIGHTWHITE_EX} Failed to load {cog}.\n  Error: {F.RED}{e}{F.RESET}")
 
-    # loads new cog on the go
+    # Command to load new cog on the go
     @commands.command(name="load", description="loads new cog module")
     async def command_load_cog(self, ctx, *, cog: str):
         try:
@@ -44,12 +45,14 @@ class Commands(commands.Cog):
             await ctx.reply(f"Failed to load extension `{cog}`. {type(e).__name__}: {e}")
             print(f"{F.RED}[-]{F.LIGHTWHITE_EX} Failed to load {cog}.\n  Error: {F.RED}{e}{F.RESET}")
 
+    # Command to restart bot.py
     @commands.command(name="restart", description="restarts bot.py")
     async def command_restart(self, ctx):
         await ctx.message.delete()
         print(f"{F.GREEN}[+]{F.LIGHTWHITE_EX} restarting the bot")
         os.execv(sys.executable, ['python'] + ['./bot.py'])
 
+    # Command to log out of the bot
     @commands.command(name="logout", description="Logs you out of the bot")
     async def command_logout(self, ctx):
         await self.bot.change_presence(
@@ -60,7 +63,7 @@ class Commands(commands.Cog):
         print(f"{F.GREEN}[+]{F.LIGHTWHITE_EX} Logged out of the account {F.LIGHTBLUE_EX}{self.bot.user}")
         await self.bot.close()
 
-    #just for fun command
+    # Command to send GitHub link (just for fun)
     @commands.command(name="github", description="send my github just for fun")
     async def command_github(self, ctx):
         msg = ctx.message
@@ -108,5 +111,6 @@ Available commands:
 Self-bots are against Discord's ToS but if you are seeing this message then you don't care or you know it already so use this at your own risk blah blah blah...
 """
 
+# Setup function to add the Commands cog to the bot
 async def setup(bot):
     await bot.add_cog(Commands(bot))

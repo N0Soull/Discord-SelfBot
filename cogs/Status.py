@@ -3,12 +3,12 @@ from colorama import Fore as F
 from discord.ext import commands
 from typing import Optional
 
-
+#  Defining a class for bot status commands
 class Status(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    # Status: idle activity: playing
+    # Command: Available
     @commands.command(name="Available", aliases=["on"])
     async def command_available(self, ctx):
         print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} rpc set to pre-defined one: {F.LIGHTGREEN_EX}available")
@@ -25,7 +25,7 @@ class Status(commands.Cog):
         if ctx.message:
             await ctx.message.delete()
 
-    # Status: invisible Activity: watching (is not shown)
+    # Command: Invisible
     @commands.command(name="invisible", aliases=["off"])
     async def command_sleep(self, ctx):
         print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} rpc set to pre-defined one: {F.BLUE}invisible")
@@ -42,7 +42,7 @@ class Status(commands.Cog):
         if ctx.message:
             await ctx.message.delete()
 
-    # status dnd activity: watching
+    # Command: Work
     @commands.command(name="work", aliases=["workiwork"])
     async def command_school(self, ctx):
         print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} rpc set to pre-defined one: {F.LIGHTRED_EX}work")
@@ -59,7 +59,7 @@ class Status(commands.Cog):
         if ctx.message:
             await ctx.message.delete()
 
-    # status: idle activity: listening
+    # Command: Suffer
     @commands.command(name="suffer", aliases=["evd"])
     async def command_suffering(self, ctx):
         print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} rpc set to pre-defined one: {F.LIGHTMAGENTA_EX}Suffer")
@@ -76,11 +76,11 @@ class Status(commands.Cog):
         if ctx.message:
             await ctx.message.delete()
 
-    # sets status
+    # Command: Status
     @commands.command(name="status", description="allows you to just change the status")
     async def command_status(self, ctx, status):
         msg = ctx.message
-
+        # Function to change the status based on input
         if status == "online":
             await self.bot.change_presence(status=discord.Status.online)
             await msg.edit(content="```yaml\nChanged status to online.```", delete_after=5)
@@ -102,11 +102,11 @@ class Status(commands.Cog):
             await msg.edit(content="```yaml\nChanged status to none.```", delete_after=5)
             print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} status set to {status}")
 
-    # sets custom rpc wiht your own activity
+    # Command: RPC
     @commands.command(name="rpc", aliases=["RPC"], description="allowes to set custom rpc")
     async def command_rpc(self, ctx, rpc : str, *, cstm: Optional [str]):
         msg = ctx.message
-
+        # Function to set custom RPC
         if rpc == "listening":
             await self.bot.change_presence(
             activity=discord.Activity(
@@ -143,5 +143,6 @@ class Status(commands.Cog):
             await msg.edit(content="```yaml\n Set your rpc to none```", delete_after=5)
             print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} RPC set to {F.LIGHTCYAN_EX}{rpc}")
 
+# Setup function to add the Status cog to the bot
 async def setup(bot):
     await bot.add_cog(Status(bot))

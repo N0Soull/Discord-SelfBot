@@ -2,22 +2,23 @@ import json
 from colorama import Fore as F
 from discord.ext import commands
 
+# Defining a class for bot Configuration commands
 class Configurations(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    # loading config
+    # Loading configuration from file
     async def load_config(self):
         with open("./cfg/config.json", "r") as config_file:
             config = json.load(config_file)
         return config
 
-    # saves config
+    # Saving configuration to file
     async def save_config(self, config):
         with open("./cfg/config.json", "w") as config_file:
             json.dump(config, config_file, indent=4)
 
-    # sets new prefix (if you dont like the default one)
+    ## Command to set a new prefix for bot commands
     @commands.command(name="setprefix", aliases=["setP"])
     async def command_set_prefix(self, ctx, prefix):
         config = await self.load_config()
@@ -39,5 +40,6 @@ dont know the usecase but i'll keep it here
         if self.bot.debug:
             print(f"CONFIG CHANGE: \ndebug switched {mode}")
 '''
+# Setup function to add the Configurations cog to the bot
 async def setup(bot):
     await bot.add_cog(Configurations(bot))

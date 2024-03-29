@@ -11,21 +11,22 @@ from colorama import Fore as F
 # note aswell that i am not planning to fix it becouse it´s your own fault if you dont set up you´r enviroment right and dont know what you are doing
 os.environ.clear()
 load_dotenv()
+# Get token from environment variables
 token = os.getenv('TOKEN')
 
-# Default configuration
+# Define default configuration dictionary
 default_config: dict = {
     "debug": False,
     "command_prefix": ">"
 }
 
-# Primary configuration file path
+# Set path to the primary configuration file
 primary_config_file_path: str = "./cfg/config.json"
 
-# Load the default configuration
+# Initialize configuration dictionary with default settings
 config: dict = default_config
 
-# Try to load the user-defined configuration
+# If user-defined configuration file exists, merge it with default configuration
 if os.path.exists(primary_config_file_path):
     with open(primary_config_file_path, "r") as config_file:
         user_config = json.load(config_file)
@@ -33,7 +34,7 @@ if os.path.exists(primary_config_file_path):
 else:
     print(f"'{primary_config_file_path}' is not found. Using default configuration.")
 
-# Extract configuration values
+# Assign extracted configuration values to separate variables
 debug: bool = config.get("debug")
 cfg_prefix: str = config.get("command_prefix")
 
@@ -45,14 +46,14 @@ class Bot(commands.Bot):
             command_prefix=command_prefix,
             self_bot=self_bot
         )
-        # loads modules
+        # Initialization tasks performed after instantiation
         self.banner()
         self.cogs_folder = "cogs"
         self.remove_command("help")
         self.debug = debug
 
-    # extension load message
     async def setup_hook(self):
+        # Perform initialization tasks required during cog loading
         cog_files = [f[:-3] for f in os.listdir(self.cogs_folder) if f.endswith(".py")]
 
         for cog_file in cog_files:
@@ -80,6 +81,7 @@ class Bot(commands.Bot):
             
     # on ready message
     async def on_ready(self):
+        # Callback executed upon successful connection to Discord server
         # sets standart presense (status: idle activity: listenting)
         await self.change_presence(
             status=discord.Status.idle,
@@ -94,6 +96,6 @@ class Bot(commands.Bot):
         if self.debug:
             print("PRESENSE CHANGED: \nDefeault presense")
 
-# prefix can be changed to anything you want
+# Instantiate client object and run the bot
 client = Bot(command_prefix=cfg_prefix, self_bot=True)
 client.run(token)

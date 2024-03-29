@@ -6,7 +6,7 @@ from urllib.parse import urlparse, unquote
 
 # Defining the emote dictionary
 '''`emote name`: (`emote id`, `emote format`),'''
-# this was moved to an external file emotes.json
+# NOTE: The emote dictionary is now stored externally in emotes.json
 
 # Load emotes from JSON file
 def load_emotes():
@@ -19,6 +19,7 @@ def load_emotes():
     except json.JSONDecodeError:
         return {}
 
+# Defining a class for bot Emotes commands
 # Save emotes to JSON file
 def save_emotes(emotes):
     with open('./cfg/emotes.json', 'w') as file:
@@ -29,7 +30,7 @@ class Emotes(commands.Cog):
         self.bot = bot
         self.emotes = load_emotes()
 
-    # create and insert emote-link
+    # Command to create and insert emote-link
     @commands.command(name="emote", aliases=["e"])
     async def emote(self, ctx, *, emote_name: str):
         if emote_name in self.emotes:
@@ -42,7 +43,7 @@ class Emotes(commands.Cog):
             print(f"{F.RED}[-]{F.LIGHTWHITE_EX} Invalid Emote name")
 
 
-    # parse emote
+    # Command to parse emote URL and return its components
     @commands.command(name="Find", aliases=["ParseEmote"])
     async def find(self, ctx, *, emote_url: str):
 
@@ -55,7 +56,7 @@ class Emotes(commands.Cog):
 
         print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} new emote found")
 
-    # add emote
+    # Command to add emote to the dictionary
     @commands.command(name="AddEmote", aliases=["addE"])
     async def add_emote(self, ctx, emote_name: str, emote_id: str, ext: str):
         self.emotes[emote_name] = (emote_id, ext)
@@ -65,7 +66,7 @@ class Emotes(commands.Cog):
 
         print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} emote {emote_name} added")
 
-    # remove emote
+    # Command to remove emote from the dictionary
     @commands.command(name="RemoveEmote", aliases=["rmE"])
     async def remove_emote(self, ctx, emote_name: str):
         if emote_name in self.emotes:
@@ -77,17 +78,18 @@ class Emotes(commands.Cog):
             await ctx.send("Emote not found.")
             print(f"{F.RED}[-]{F.LIGHTWHITE_EX} Failed to delete {emote_name}.")
 
+    # Command to list all emotes stored in the dictionary
     @commands.command(name='emotelist', description="sends a list with all emote names which are saven in emotes.json file")
     async def list_emotes(self, ctx):
         with open('./cfg/emotes.json', 'r') as file:
             emotes_data = json.load(file)
 
         emote_names = list(emotes_data.keys())
-        # native discord emoji link
+        # Native discord emoji link
         base_link = "https://cdn.discordapp.com/emojis/"
         full_links = []
 
-        # parses the emotes saved in file and creates a link with parsed data, also inserts the values into new formated list
+        # Parse the emotes saved in the file and create a link with parsed data, also insert the values into a new formatted list
         for emote_name in emote_names:
             if emote_name in self.emotes:
                 emote_id, ext = self.emotes[emote_name]
@@ -102,5 +104,6 @@ class Emotes(commands.Cog):
         await ctx.message.edit(output)
         print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} emote list command used")
 
+# Setup function to add the Emotes cog to the bot
 async def setup(bot):
     await bot.add_cog(Emotes(bot))
