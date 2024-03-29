@@ -8,7 +8,7 @@ from colorama import Fore as F
 
 # please note that this damn god forbidden load .env function can only work with properly set up libraries
 # if you try to do it otherwise and not like it says in README then it´s your fault and you can fuck with that on your own
-# note aswell that i am not planning to fix it becouse it´s your own fault if you dont set up you´r enviroment right
+# note aswell that i am not planning to fix it becouse it´s your own fault if you dont set up you´r enviroment right and dont know what you are doing
 os.environ.clear()
 load_dotenv()
 token = os.getenv('TOKEN')
