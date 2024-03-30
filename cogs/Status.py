@@ -34,7 +34,7 @@ class Status(commands.Cog):
             status=discord.Status.invisible,
             activity=discord.Activity(
                 type=discord.ActivityType.watching,
-                name="some bullshit"
+                name="Some bullshit"
             ),
             afk=False
         )
@@ -51,7 +51,7 @@ class Status(commands.Cog):
             status=discord.Status.do_not_disturb,
             activity=discord.Activity(
                 type=discord.ActivityType.watching,
-                name="N0Soul go insane"
+                name="N0Soul worky work"
             ),
             afk=False
         )

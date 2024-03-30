@@ -86,8 +86,8 @@ class Bot(commands.Bot):
         await self.change_presence(
             status=discord.Status.idle,
             activity=discord.Activity(
-                type=discord.ActivityType.listening, #activity types: playing, watching, streaming, listening, custom, competing
-                name="voices in my head"
+                type=discord.ActivityType.watching, #activity types: playing, watching, streaming, listening, custom, competing
+                name="N0Soul go insane"
             ),
             afk=True # AFK mode: ON/OFF for discord to better catch and force the notifications
         )

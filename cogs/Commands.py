@@ -4,6 +4,9 @@ import discord
 from discord.ext import commands
 from colorama import Fore as F
 
+def clear():
+    print("\x1b[H\x1b[J")
+
 # Defining a class for bot Commands
 class Commands(commands.Cog):
     def __init__(self, bot):
@@ -49,8 +52,14 @@ class Commands(commands.Cog):
     @commands.command(name="restart", description="restarts bot.py")
     async def command_restart(self, ctx):
         await ctx.message.delete()
+        clear()
         print(f"{F.GREEN}[+]{F.LIGHTWHITE_EX} restarting the bot")
         os.execv(sys.executable, ['python'] + ['./bot.py'])
+
+    @commands.command(name="cls", description="clears the console")
+    async def command_cls(self, ctx):
+        await ctx.message.delete()
+        clear()
 
     # Command to log out of the bot
     @commands.command(name="logout", description="Logs you out of the bot")
