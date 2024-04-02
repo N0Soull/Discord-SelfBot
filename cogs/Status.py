@@ -16,10 +16,10 @@ class Status(commands.Cog):
         await self.bot.change_presence(
             status=discord.Status.idle,
             activity=discord.Activity(
-                type=discord.ActivityType.playing,
-                name="with N0Soul's sanity"
+                type=discord.ActivityType.watching,
+                name="N0Soul go insane"
             ),
-            afk=False
+            afk=True
         )
 
         if ctx.message:
@@ -36,7 +36,7 @@ class Status(commands.Cog):
                 type=discord.ActivityType.watching,
                 name="Some bullshit"
             ),
-            afk=False
+            afk=True
         )
 
         if ctx.message:
@@ -53,7 +53,7 @@ class Status(commands.Cog):
                 type=discord.ActivityType.watching,
                 name="N0Soul worky work"
             ),
-            afk=False
+            afk=True
         )
         
         if ctx.message:
@@ -70,7 +70,7 @@ class Status(commands.Cog):
                 type=discord.ActivityType.listening,
                 name="voices in my head"
             ),
-            afk=False
+            afk=True
         )
 
         if ctx.message:
