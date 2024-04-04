@@ -44,7 +44,7 @@ class Status(commands.Cog):
 
     # Command: Work
     @commands.command(name="work", aliases=["workiwork"])
-    async def command_school(self, ctx):
+    async def command_work(self, ctx):
         print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} rpc set to pre-defined one: {F.LIGHTRED_EX}work")
 
         await self.bot.change_presence(
@@ -54,6 +54,23 @@ class Status(commands.Cog):
                 name="N0Soul worky work"
             ),
             afk=True
+        )
+        
+        if ctx.message:
+            await ctx.message.delete()
+
+        # Command: Work
+    @commands.command(name="code")
+    async def command_codel(self, ctx):
+        print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} rpc set to pre-defined one: {F.LIGHTRED_EX}code")
+
+        await self.bot.change_presence(
+            status=discord.Status.do_not_disturb,
+            activity=discord.Activity(
+                type=discord.ActivityType.watching,
+                name="N0Soul code"
+            ),
+            afk=False
         )
         
         if ctx.message:
@@ -111,8 +128,9 @@ class Status(commands.Cog):
             await self.bot.change_presence(
             activity=discord.Activity(
                 type=discord.ActivityType.listening,
-                name=cstm,),
-            status=self.bot.status)
+                name=cstm),
+                status=self.bot.status
+            )
 
             await msg.edit(content=f"```yaml\n+ Set your listening rpc to {cstm}```", delete_after=5)
             print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} RPC set to {F.LIGHTCYAN_EX}{rpc}{F.LIGHTWHITE_EX} with a custom message '{F.LIGHTBLUE_EX}{cstm}{F.LIGHTWHITE_EX}'")
@@ -121,7 +139,8 @@ class Status(commands.Cog):
             activity=discord.Activity(
                 type=discord.ActivityType.watching,
                 name=cstm),
-            status=self.bot.status)
+                status=self.bot.status
+            )
         
             await msg.edit(content=f"```yaml\n+ Set your watching rpc to {cstm}```", delete_after=5)
             print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} RPC set to {F.LIGHTCYAN_EX}{rpc}{F.LIGHTWHITE_EX} with a custom message '{F.LIGHTBLUE_EX}{cstm}{F.LIGHTWHITE_EX}'")
@@ -130,7 +149,8 @@ class Status(commands.Cog):
             activity=discord.Activity(
                 type=discord.ActivityType.playing,
                 name=cstm),
-            status=self.bot.status)
+                status=self.bot.status
+            )
             
             await msg.edit(content=f"```yaml\n+ Set your playing rpc to {cstm}```", delete_after=5)
             print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} RPC set to {F.LIGHTCYAN_EX}{rpc}{F.LIGHTWHITE_EX} with a custom message '{F.LIGHTBLUE_EX}{cstm}{F.LIGHTWHITE_EX}'")
@@ -142,6 +162,25 @@ class Status(commands.Cog):
 
             await msg.edit(content="```yaml\n Set your rpc to none```", delete_after=5)
             print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} RPC set to {F.LIGHTCYAN_EX}{rpc}")
+
+    # Command: AFK
+    @commands.command(name="afk", aliases=["AFK"], description="allowes to set afk status")
+    async def command_afk(self, ctx, status : str):
+        msg = ctx.message
+        if status == "on":
+            await self.bot.change_presence(
+                afk=True,
+                status=self.bot.status
+                )
+            await msg.edit(content="```yaml\nChanged afk status to on```", delete_after=5)
+            print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} afk set to {F.LIGHTGREEN_EX}{status}")
+        elif status == "off":
+            await self.bot.change_presence(
+                afk=False,
+                status=self.bot.status
+                )
+            await msg.edit(content="```yaml\nChanged afk status to off```", delete_after=5)
+            print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} afk set to {F.LIGHTRED_EX}{status}")
 
 # Setup function to add the Status cog to the bot
 async def setup(bot):
