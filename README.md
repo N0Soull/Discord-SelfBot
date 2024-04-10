@@ -107,7 +107,7 @@ TOKEN=YOUR_DISCORD_TOKEN_HERE
 
 replace `YOUR_DISCORD_TOKEN_HERE` with your actual discord token
 
-To obtain your discord token, you can have a look [`here`](https://discordpy-self.readthedocs.io/en/latest/token.html), or search online.
+To obtain your discord token, you can have a look [`here`]([https://discordpy-self.readthedocs.io/en/latest/token.html](https://discordpy-self.readthedocs.io/en/latest/authenticating.html)), or search online.
 
 ---
 
