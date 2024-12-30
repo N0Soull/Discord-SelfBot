@@ -1,10 +1,10 @@
 import discord
 import os
-import fade
 import json
 from discord.ext import commands
 from dotenv import load_dotenv
 from colorama import Fore as F
+from cogs.banner import banner
 
 # please note that this damn god forbidden load .env function can only work with properly set up libraries
 # if you try to do it otherwise and not like it says in README then it´s your fault and you can fuck with that on your own
@@ -47,14 +47,13 @@ class Bot(commands.Bot):
             self_bot=self_bot
         )
         # Initialization tasks performed after instantiation
-        self.banner()
         self.cogs_folder = "cogs"
         self.remove_command("help")
         self.debug = debug
 
     async def setup_hook(self):
         # Perform initialization tasks required during cog loading
-        cog_files = [f[:-3] for f in os.listdir(self.cogs_folder) if f.endswith(".py")]
+        cog_files = [f[:-3] for f in os.listdir(self.cogs_folder) if f.endswith(".py" ) and f != "banner.py"]
 
         for cog_file in cog_files:
             cog_path = f"{self.cogs_folder}.{cog_file}"
@@ -67,18 +66,6 @@ class Bot(commands.Bot):
                 exit()
         print(f"{F.YELLOW}[?]{F.LIGHTWHITE_EX} Connecting...")
 
-    def banner(self):
-     """Print a fancy banner."""
-    print(fade.purplepink("""
-   _____             ____                   ____        __ 
-  / ___/____  __  __/ / /__  __________    / __ )____  / /_
-  \__ \/ __ \/ / / / / / _ \/ ___/ ___/   / __  / __ \/ __/
- ___/ / /_/ / /_/ / / /  __(__  |__  )   / /_/ / /_/ / /_  
-/____/\____/\__,_/_/_/\___/____/____/   /_____/\____/\__/  
-                        
-              ｍａｄｅ　ｂｙ　Ｎ０Ｓｏｕｌｌ
-           """))
-            
     # on ready message
     async def on_ready(self):
         # Callback executed upon successful connection to Discord server
