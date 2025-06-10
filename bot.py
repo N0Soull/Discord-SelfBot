@@ -1,10 +1,14 @@
+import discord.ext.commands as commands
 import discord
-import os
-import json
-from discord.ext import commands
 from dotenv import load_dotenv
 from colorama import Fore as F
 from cogs.banner import banner
+import os
+import json
+from patch import patch_discord
+
+# Apply the patch
+patch_discord()
 
 # please note that this damn god forbidden load .env function can only work with properly set up libraries
 # if you try to do it otherwise and not like it says in README then it´s your fault and you can fuck with that on your own
@@ -39,14 +43,15 @@ debug: bool = config.get("debug")
 cfg_prefix: str = config.get("command_prefix")
 
 
-# bot intialization
+# bot initialization
 class Bot(commands.Bot):
     def __init__(self, command_prefix, self_bot):
+        # Initialize with dispatch_events=True for self-bot
         super().__init__(
             command_prefix=command_prefix,
-            self_bot=self_bot
+            self_bot=self_bot,
+            dispatch_events=True
         )
-        # Initialization tasks performed after instantiation
         self.cogs_folder = "cogs"
         self.remove_command("help")
         self.debug = debug
@@ -68,21 +73,24 @@ class Bot(commands.Bot):
 
     # on ready message
     async def on_ready(self):
-        # Callback executed upon successful connection to Discord server
-        # sets standart presense (status: idle activity: listenting)
-        await self.change_presence(
-            status=discord.Status.idle,
-            activity=discord.Activity(
-                type=discord.ActivityType.watching, #activity types: playing, watching, streaming, listening, custom, competing
-                name="N0Soul go insane"
-            ),
-            afk=True # AFK mode: ON/OFF for discord to better catch and force the notifications
-        )
-        print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} rpc set to: {F.LIGHTMAGENTA_EX}Start")
+        try:
+            await self.change_presence(
+                status=discord.Status.idle,
+                activity=discord.Activity(
+                    type=discord.ActivityType.watching,
+                    name="N0Soul go insane"
+                )
+            )
+            print(f"{F.LIGHTMAGENTA_EX}(*){F.LIGHTWHITE_EX} rpc set to: {F.LIGHTMAGENTA_EX}Start")
 
-        if self.debug:
-            print("PRESENSE CHANGED: \nDefeault presense")
+            if self.debug:
+                print("PRESENCE CHANGED: \nDefault presence")
+        except Exception as e:
+            print(f"Failed to set presence: {e}")
 
 # Instantiate client object and run the bot
 client = Bot(command_prefix=cfg_prefix, self_bot=True)
-client.run(token)
+try:
+    client.run(token, log_handler=None)
+except Exception as e:
+    print(f"Failed to start the bot: {e}")
